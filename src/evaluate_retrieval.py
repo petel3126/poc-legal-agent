@@ -25,9 +25,9 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 EVAL_QA_PATH = Path(__file__).resolve().parent.parent / "data" / "eval" / "legal_qa_eval_30.json"
-CHUNKS_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "blld_45_2019_qh14_chunks.json"
-EMBEDDINGS_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "blld_45_2019_qh14_embeddings.npy"
-META_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "blld_45_2019_qh14_embedding_meta.json"
+CHUNKS_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "legal_chunks.json"
+EMBEDDINGS_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "legal_embeddings.npy"
+META_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "legal_embedding_meta.json"
 RESULTS_PATH = Path(__file__).resolve().parent.parent / "data" / "eval" / "eval_results.json"
 
 

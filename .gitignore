@@ -1,8 +1,25 @@
+# Môi trường ảo Python & Cache
 .venv/
+venv/
+env/
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Biến môi trường & Bí mật
 .env
+.env.*
+!.env.example
+
+# IDE & Editor
 .vscode/
+.idea/
+*.swp
+
+# Hệ điều hành
+.DS_Store
+Thumbs.db
 
 # Trọng số mô hình & checkpoints nặng (>100MB)
 checkpoints/
@@ -11,6 +28,15 @@ finetune/fine_tuned_model/
 *.bin
 *.pt
 *.pth
+*.h5
+*.onnx
 
-# Vector embeddings tự sinh
+# Vector embeddings / Index tự sinh (dung lượng lớn)
 data/processed/*.npy
+data/processed/*.npz
+data/processed/*.faiss
+data/processed/*.index
+
+# Logs & Thư mục scratch thử nghiệm
+*.log
+scratch/

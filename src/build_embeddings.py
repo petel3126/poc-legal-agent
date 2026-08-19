@@ -16,9 +16,9 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 
-CHUNKS_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "blld_45_2019_qh14_chunks.json"
-EMBEDDINGS_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "blld_45_2019_qh14_embeddings.npy"
-META_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "blld_45_2019_qh14_embedding_meta.json"
+CHUNKS_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "legal_chunks.json"
+EMBEDDINGS_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "legal_embeddings.npy"
+META_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "legal_embedding_meta.json"
 
 MODEL_NAME = "bkai-foundation-models/vietnamese-bi-encoder"
 
@@ -65,4 +65,8 @@ def run_embedding(chunks_path: Path = CHUNKS_PATH, embeddings_path: Path = EMBED
     print(f"Đã lưu metadata vào {meta_path}")
     print("Hoàn tất sinh vector embeddings!\n")
     return embeddings
+
+
+if __name__ == "__main__":
+    run_embedding(force_reembed=True)
 

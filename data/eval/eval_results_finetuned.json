@@ -1,0 +1,36 @@
+{
+  "summary": {
+    "BM25": {
+      "Recall@1": 0.4667,
+      "Recall@3": 0.6476,
+      "Recall@5": 0.7571,
+      "MRR@5": 0.6078,
+      "MAP@5": 0.5805,
+      "Avg_Latency_ms": 1.13
+    },
+    "Dense Search": {
+      "Recall@1": 0.7000,
+      "Recall@3": 0.8333,
+      "Recall@5": 0.9000,
+      "MRR@5": 0.7917,
+      "MAP@5": 0.7750,
+      "Avg_Latency_ms": 56.12
+    },
+    "Hybrid RRF (Top 20)": {
+      "Recall@1": 0.6667,
+      "Recall@3": 0.7667,
+      "Recall@5": 0.9000,
+      "MRR@5": 0.7639,
+      "MAP@5": 0.7444,
+      "Avg_Latency_ms": 57.25
+    },
+    "Full Pipeline (Reranked)": {
+      "Recall@1": 0.7667,
+      "Recall@3": 0.8643,
+      "Recall@5": 0.9024,
+      "MRR@5": 0.8361,
+      "MAP@5": 0.8254,
+      "Avg_Latency_ms": 302.00
+    }
+  }
+}

@@ -15,7 +15,7 @@ from datetime import date
 from pathlib import Path
 from rank_bm25 import BM25Okapi
 
-CHUNKS_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "blld_45_2019_qh14_chunks.json"
+CHUNKS_PATH = Path(__file__).resolve().parent.parent / "data" / "processed" / "legal_chunks.json"
 
 
 def simple_tokenize(text: str):

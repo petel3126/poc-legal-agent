@@ -28,8 +28,8 @@ def run_user_pipeline():
     print("      PIPELINE 2: HỆ THỐNG PHÁP LUẬT HỎI ĐÁP DÀNH CHO NGUỜI DÙNG (HYBRID RRF + RERANKER)      ")
     print("=" * 95 + "\n")
 
-    chunks_file = ROOT_DIR / "data" / "processed" / "blld_45_2019_qh14_chunks.json"
-    embeddings_file = ROOT_DIR / "data" / "processed" / "blld_45_2019_qh14_embeddings.npy"
+    chunks_file = ROOT_DIR / "data" / "processed" / "legal_chunks.json"
+    embeddings_file = ROOT_DIR / "data" / "processed" / "legal_embeddings.npy"
 
     if not chunks_file.exists():
         print("\n[BƯỚC 1/3] HIERARCHICAL LEGAL CHUNKING (TÁCH ĐOẠN VĂN BẢN LUẬT)")

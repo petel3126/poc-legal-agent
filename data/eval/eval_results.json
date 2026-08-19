@@ -1,0 +1,1246 @@
+{
+  "summary": {
+    "BM25": {
+      "Recall@1": 0.4666666666666667,
+      "Recall@3": 0.6476190476190476,
+      "Recall@5": 0.7571428571428572,
+      "MRR@5": 0.6077777777777779,
+      "MAP@5": 0.5804761904761905,
+      "Avg_Latency_ms": 1.126956664181004
+    },
+    "Dense Search": {
+      "Recall@1": 0.6,
+      "Recall@3": 0.7726190476190476,
+      "Recall@5": 0.8571428571428572,
+      "MRR@5": 0.725,
+      "MAP@5": 0.6932539682539682,
+      "Avg_Latency_ms": 55.56588001005972
+    },
+    "Hybrid RRF (Top 20)": {
+      "Recall@1": 0.6,
+      "Recall@3": 0.6976190476190477,
+      "Recall@5": 0.8821428571428572,
+      "MRR@5": 0.7222222222222221,
+      "MAP@5": 0.6914484126984127,
+      "Avg_Latency_ms": 56.60215333919041
+    },
+    "Hybrid RRF + Reranker": {
+      "Recall@1": 0.7,
+      "Recall@3": 0.830952380952381,
+      "Recall@5": 0.8654761904761905,
+      "MRR@5": 0.7944444444444445,
+      "MAP@5": 0.7765873015873016,
+      "Avg_Latency_ms": 13254.837690008571
+    }
+  },
+  "detail_by_method": {
+    "BM25": [
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q01",
+        "category": "keyword_match",
+        "latency_ms": 1.539599965326488
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q02",
+        "category": "keyword_match",
+        "latency_ms": 1.7365000094287097
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 0.75,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 0.95,
+        "id": "Q03",
+        "category": "keyword_match",
+        "latency_ms": 0.7553000468760729
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q04",
+        "category": "keyword_match",
+        "latency_ms": 0.7101999945007265
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.5,
+        "recall_5": 0.75,
+        "mrr_5": 0.5,
+        "map_5": 0.44166666666666665,
+        "id": "Q05",
+        "category": "keyword_match",
+        "latency_ms": 0.9532999829389155
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q06",
+        "category": "keyword_match",
+        "latency_ms": 0.7029999978840351
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q07",
+        "category": "keyword_match",
+        "latency_ms": 0.9265999542549253
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q08",
+        "category": "keyword_match",
+        "latency_ms": 0.9422000148333609
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q09",
+        "category": "keyword_match",
+        "latency_ms": 1.0226999875158072
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q10",
+        "category": "keyword_match",
+        "latency_ms": 0.9897999698296189
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.3333333333333333,
+        "map_5": 0.3333333333333333,
+        "id": "Q11",
+        "category": "semantic_paraphrase",
+        "latency_ms": 0.8711999980732799
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q12",
+        "category": "semantic_paraphrase",
+        "latency_ms": 0.7707999902777374
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q13",
+        "category": "semantic_paraphrase",
+        "latency_ms": 1.0525000398047268
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q14",
+        "category": "semantic_paraphrase",
+        "latency_ms": 0.7942999945953488
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q15",
+        "category": "semantic_paraphrase",
+        "latency_ms": 1.0621999972499907
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.2,
+        "map_5": 0.2,
+        "id": "Q16",
+        "category": "semantic_paraphrase",
+        "latency_ms": 1.4597999979741871
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q17",
+        "category": "semantic_paraphrase",
+        "latency_ms": 1.2140999897383153
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q18",
+        "category": "semantic_paraphrase",
+        "latency_ms": 0.8414000039920211
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q19",
+        "category": "semantic_paraphrase",
+        "latency_ms": 0.9190000128000975
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q20",
+        "category": "semantic_paraphrase",
+        "latency_ms": 0.8369999704882503
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 0.42857142857142855,
+        "recall_5": 0.7142857142857143,
+        "mrr_5": 1.0,
+        "map_5": 0.7142857142857143,
+        "id": "Q21",
+        "category": "complex_legal",
+        "latency_ms": 0.7788999937474728
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q22",
+        "category": "complex_legal",
+        "latency_ms": 0.8452999754808843
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q23",
+        "category": "complex_legal",
+        "latency_ms": 1.4021999668329954
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.25,
+        "recall_5": 0.25,
+        "mrr_5": 0.5,
+        "map_5": 0.125,
+        "id": "Q24",
+        "category": "complex_legal",
+        "latency_ms": 0.9814000222831964
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q25",
+        "category": "complex_legal",
+        "latency_ms": 1.4919000095687807
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.2,
+        "map_5": 0.2,
+        "id": "Q26",
+        "category": "complex_legal",
+        "latency_ms": 1.4489000313915312
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q27",
+        "category": "complex_legal",
+        "latency_ms": 1.4242000179365277
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q28",
+        "category": "complex_legal",
+        "latency_ms": 2.7086000191047788
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.5,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.45,
+        "id": "Q29",
+        "category": "complex_legal",
+        "latency_ms": 1.7633999814279377
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q30",
+        "category": "complex_legal",
+        "latency_ms": 0.8623999892733991
+      }
+    ],
+    "Dense Search": [
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q01",
+        "category": "keyword_match",
+        "latency_ms": 214.3512000911869
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q02",
+        "category": "keyword_match",
+        "latency_ms": 77.15159998042509
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 0.5,
+        "recall_5": 0.75,
+        "mrr_5": 1.0,
+        "map_5": 0.6875,
+        "id": "Q03",
+        "category": "keyword_match",
+        "latency_ms": 41.079599992372096
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q04",
+        "category": "keyword_match",
+        "latency_ms": 33.90320000471547
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 0.5,
+        "recall_5": 0.75,
+        "mrr_5": 1.0,
+        "map_5": 0.6875,
+        "id": "Q05",
+        "category": "keyword_match",
+        "latency_ms": 44.955599994864315
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q06",
+        "category": "keyword_match",
+        "latency_ms": 30.515899998135865
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q07",
+        "category": "keyword_match",
+        "latency_ms": 39.21339998487383
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q08",
+        "category": "keyword_match",
+        "latency_ms": 41.7623000103049
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q09",
+        "category": "keyword_match",
+        "latency_ms": 74.70960001228377
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q10",
+        "category": "keyword_match",
+        "latency_ms": 36.3389000413008
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q11",
+        "category": "semantic_paraphrase",
+        "latency_ms": 44.13830005796626
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q12",
+        "category": "semantic_paraphrase",
+        "latency_ms": 56.220300029963255
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q13",
+        "category": "semantic_paraphrase",
+        "latency_ms": 39.86990003613755
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q14",
+        "category": "semantic_paraphrase",
+        "latency_ms": 31.960399996023625
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q15",
+        "category": "semantic_paraphrase",
+        "latency_ms": 42.35940001672134
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q16",
+        "category": "semantic_paraphrase",
+        "latency_ms": 37.9708000109531
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q17",
+        "category": "semantic_paraphrase",
+        "latency_ms": 43.18610002519563
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q18",
+        "category": "semantic_paraphrase",
+        "latency_ms": 40.27639998821542
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q19",
+        "category": "semantic_paraphrase",
+        "latency_ms": 36.91679995972663
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.25,
+        "map_5": 0.25,
+        "id": "Q20",
+        "category": "semantic_paraphrase",
+        "latency_ms": 63.72859998373315
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 0.42857142857142855,
+        "recall_5": 0.7142857142857143,
+        "mrr_5": 1.0,
+        "map_5": 0.7142857142857143,
+        "id": "Q21",
+        "category": "complex_legal",
+        "latency_ms": 39.0874000149779
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q22",
+        "category": "complex_legal",
+        "latency_ms": 32.60139998747036
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.3333333333333333,
+        "map_5": 0.3333333333333333,
+        "id": "Q23",
+        "category": "complex_legal",
+        "latency_ms": 34.38670001924038
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.25,
+        "recall_5": 0.5,
+        "mrr_5": 0.3333333333333333,
+        "map_5": 0.20833333333333331,
+        "id": "Q24",
+        "category": "complex_legal",
+        "latency_ms": 35.458399972412735
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q25",
+        "category": "complex_legal",
+        "latency_ms": 49.26460003480315
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q26",
+        "category": "complex_legal",
+        "latency_ms": 67.68999999621883
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q27",
+        "category": "complex_legal",
+        "latency_ms": 50.8848000317812
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q28",
+        "category": "complex_legal",
+        "latency_ms": 164.04520004289225
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.5,
+        "recall_5": 1.0,
+        "mrr_5": 0.3333333333333333,
+        "map_5": 0.41666666666666663,
+        "id": "Q29",
+        "category": "complex_legal",
+        "latency_ms": 83.14969995990396
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q30",
+        "category": "complex_legal",
+        "latency_ms": 39.79990002699196
+      }
+    ],
+    "Hybrid RRF (Top 20)": [
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q01",
+        "category": "keyword_match",
+        "latency_ms": 216.09970001736656
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q02",
+        "category": "keyword_match",
+        "latency_ms": 78.02539999829605
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 0.75,
+        "recall_5": 0.75,
+        "mrr_5": 1.0,
+        "map_5": 0.75,
+        "id": "Q03",
+        "category": "keyword_match",
+        "latency_ms": 41.69859999092296
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q04",
+        "category": "keyword_match",
+        "latency_ms": 34.75530003197491
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.5,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.6791666666666667,
+        "id": "Q05",
+        "category": "keyword_match",
+        "latency_ms": 45.88379996130243
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q06",
+        "category": "keyword_match",
+        "latency_ms": 31.267200014553964
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q07",
+        "category": "keyword_match",
+        "latency_ms": 40.18880001967773
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q08",
+        "category": "keyword_match",
+        "latency_ms": 42.75649995543063
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q09",
+        "category": "keyword_match",
+        "latency_ms": 75.78420004574582
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.25,
+        "map_5": 0.25,
+        "id": "Q10",
+        "category": "keyword_match",
+        "latency_ms": 37.32460003811866
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q11",
+        "category": "semantic_paraphrase",
+        "latency_ms": 45.69669999182224
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q12",
+        "category": "semantic_paraphrase",
+        "latency_ms": 57.03910003649071
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q13",
+        "category": "semantic_paraphrase",
+        "latency_ms": 40.66990001592785
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 0.5,
+        "recall_5": 0.5,
+        "mrr_5": 1.0,
+        "map_5": 0.5,
+        "id": "Q14",
+        "category": "semantic_paraphrase",
+        "latency_ms": 33.050800033379346
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q15",
+        "category": "semantic_paraphrase",
+        "latency_ms": 43.26529998797923
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.25,
+        "map_5": 0.25,
+        "id": "Q16",
+        "category": "semantic_paraphrase",
+        "latency_ms": 38.92660001292825
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q17",
+        "category": "semantic_paraphrase",
+        "latency_ms": 44.08359999069944
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q18",
+        "category": "semantic_paraphrase",
+        "latency_ms": 41.13630001666024
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q19",
+        "category": "semantic_paraphrase",
+        "latency_ms": 38.58739999122918
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.25,
+        "map_5": 0.25,
+        "id": "Q20",
+        "category": "semantic_paraphrase",
+        "latency_ms": 64.65239997487515
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 0.42857142857142855,
+        "recall_5": 0.7142857142857143,
+        "mrr_5": 1.0,
+        "map_5": 0.7142857142857143,
+        "id": "Q21",
+        "category": "complex_legal",
+        "latency_ms": 39.927200006786734
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.25,
+        "map_5": 0.25,
+        "id": "Q22",
+        "category": "complex_legal",
+        "latency_ms": 33.42059999704361
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q23",
+        "category": "complex_legal",
+        "latency_ms": 35.42200004449114
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.25,
+        "recall_5": 0.5,
+        "mrr_5": 0.3333333333333333,
+        "map_5": 0.18333333333333335,
+        "id": "Q24",
+        "category": "complex_legal",
+        "latency_ms": 36.23590001370758
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q25",
+        "category": "complex_legal",
+        "latency_ms": 50.675900012720376
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q26",
+        "category": "complex_legal",
+        "latency_ms": 68.18890001159161
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q27",
+        "category": "complex_legal",
+        "latency_ms": 51.89659999450669
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q28",
+        "category": "complex_legal",
+        "latency_ms": 165.77740001957864
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.5,
+        "recall_5": 1.0,
+        "mrr_5": 0.3333333333333333,
+        "map_5": 0.41666666666666663,
+        "id": "Q29",
+        "category": "complex_legal",
+        "latency_ms": 84.86089995130897
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q30",
+        "category": "complex_legal",
+        "latency_ms": 40.766999998595566
+      }
+    ],
+    "Hybrid RRF + Reranker": [
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q01",
+        "category": "keyword_match",
+        "latency_ms": 21112.87520005135
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q02",
+        "category": "keyword_match",
+        "latency_ms": 14511.44239999121
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q03",
+        "category": "keyword_match",
+        "latency_ms": 7045.669500017539
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q04",
+        "category": "keyword_match",
+        "latency_ms": 9569.960100052413
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 0.75,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q05",
+        "category": "keyword_match",
+        "latency_ms": 6023.77729996806
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q06",
+        "category": "keyword_match",
+        "latency_ms": 7375.733499997295
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q07",
+        "category": "keyword_match",
+        "latency_ms": 13634.421300026588
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q08",
+        "category": "keyword_match",
+        "latency_ms": 14949.400899989996
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q09",
+        "category": "keyword_match",
+        "latency_ms": 19975.184400042053
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q10",
+        "category": "keyword_match",
+        "latency_ms": 19374.503800063394
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q11",
+        "category": "semantic_paraphrase",
+        "latency_ms": 14136.791200027801
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q12",
+        "category": "semantic_paraphrase",
+        "latency_ms": 15814.75970003521
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q13",
+        "category": "semantic_paraphrase",
+        "latency_ms": 7597.813699976541
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q14",
+        "category": "semantic_paraphrase",
+        "latency_ms": 15149.817700032145
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q15",
+        "category": "semantic_paraphrase",
+        "latency_ms": 18436.386099958327
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q16",
+        "category": "semantic_paraphrase",
+        "latency_ms": 18422.321900026873
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q17",
+        "category": "semantic_paraphrase",
+        "latency_ms": 18042.56869998062
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q18",
+        "category": "semantic_paraphrase",
+        "latency_ms": 13130.600000033155
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q19",
+        "category": "semantic_paraphrase",
+        "latency_ms": 9916.385399992578
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.0,
+        "recall_5": 0.0,
+        "mrr_5": 0.0,
+        "map_5": 0.0,
+        "id": "Q20",
+        "category": "semantic_paraphrase",
+        "latency_ms": 5811.4640999701805
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 0.42857142857142855,
+        "recall_5": 0.7142857142857143,
+        "mrr_5": 1.0,
+        "map_5": 0.7142857142857143,
+        "id": "Q21",
+        "category": "complex_legal",
+        "latency_ms": 10275.432399997953
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q22",
+        "category": "complex_legal",
+        "latency_ms": 18385.209299973212
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q23",
+        "category": "complex_legal",
+        "latency_ms": 11288.157300034072
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.25,
+        "recall_5": 0.25,
+        "mrr_5": 0.3333333333333333,
+        "map_5": 0.08333333333333333,
+        "id": "Q24",
+        "category": "complex_legal",
+        "latency_ms": 16191.592900024261
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q25",
+        "category": "complex_legal",
+        "latency_ms": 13796.736100048292
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q26",
+        "category": "complex_legal",
+        "latency_ms": 15095.50749999471
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q27",
+        "category": "complex_legal",
+        "latency_ms": 7241.917600040324
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q28",
+        "category": "complex_legal",
+        "latency_ms": 15560.790000017732
+      },
+      {
+        "recall_1": 0.0,
+        "recall_3": 0.5,
+        "recall_5": 1.0,
+        "mrr_5": 0.5,
+        "map_5": 0.5,
+        "id": "Q29",
+        "category": "complex_legal",
+        "latency_ms": 6639.814299938735
+      },
+      {
+        "recall_1": 1.0,
+        "recall_3": 1.0,
+        "recall_5": 1.0,
+        "mrr_5": 1.0,
+        "map_5": 1.0,
+        "id": "Q30",
+        "category": "complex_legal",
+        "latency_ms": 13138.09639995452
+      }
+    ]
+  }
+}

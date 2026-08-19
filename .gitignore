@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.vscode/
+
+# Trọng số mô hình & checkpoints nặng (>100MB)
+checkpoints/
+finetune/fine_tuned_model/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Vector embeddings tự sinh
+data/processed/*.npy

@@ -1,0 +1,702 @@
+[
+  {
+    "id": "sample_0501",
+    "query": "Trường hợp liên quan tới có chính sách phát triển, phân bố nguồn nhân lực; nâng cao n được xử lý ra sao?",
+    "positive": "Điều 4. Chính sách của Nhà nước về lao động\nCó chính sách phát triển, phân bố nguồn nhân lực; nâng cao năng suất lao động; đào tạo, bồi dưỡng và nâng cao trình độ, kỹ năng nghề cho người lao động; hỗ trợ duy trì, chuyển đổi nghề nghiệp, việc làm cho người lao động; ưu đãi đối với người lao động có trình độ chuyên môn, kỹ thuật cao đáp ứng yêu cầu của cách mạng công nghiệp, sự nghiệp công nghiệp hóa, hiện đại hóa đất nước.",
+    "positive_id": "45-2019-QH14-đ4-k4",
+    "hard_negatives": [
+      "Điều 4. Chính sách của Nhà nước về lao động\nCó chính sách phát triển thị trường lao động, đa dạng các hình thức kết nối cung, cầu lao động.",
+      "Điều 3. Giải thích từ ngữ\nPhân biệt đối xử trong lao động là hành vi phân biệt, loại trừ hoặc ưu tiên dựa trên chủng tộc, màu da, nguồn gốc quốc gia hoặc nguồn gốc xã hội, dân tộc, giới tính, độ tuổi, tình trạng thai sản, tình trạng hôn nhân, tôn giáo, tín ngưỡng, chính kiến, khuyết tật, trách nhiệm gia đình hoặc trên cơ sở tình trạng nhiễm HIV hoặc vì lý do thành lập, gia nhập và hoạt động công đoàn, tổ chức của người lao động tại doanh nghiệp có tác động làm ảnh hưởng đến bình đẳng về cơ hội việc làm hoặc nghề nghiệp. Việc phân biệt, loại trừ hoặc ưu tiên xuất phát từ yêu cầu đặc thù của công việc và các hành vi duy trì, bảo vệ việc làm cho người lao động dễ bị tổn thương thì không bị xem là phân biệt đối xử."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ4-k5",
+      "45-2019-QH14-đ3-k8"
+    ]
+  },
+  {
+    "id": "sample_0502",
+    "query": "Trường hợp liên quan tới việc xử lý kỷ luật lao động được quy định như sau: được xử lý ra sao?",
+    "positive": "Điều 122. Nguyên tắc, trình tự, thủ tục xử lý kỷ luật lao động\nViệc xử lý kỷ luật lao động được quy định như sau:\na) Người sử dụng lao động phải chứng minh được lỗi của người lao động;\nb) Phải có sự tham gia của tổ chức đại diện người lao động tại cơ sở mà người lao động đang bị xử lý kỷ luật là thành viên;\nc) Người lao động phải có mặt và có quyền tự bào chữa, nhờ luật sư hoặc tổ chức đại diện người lao động bào chữa; trường hợp là người chưa đủ 15 tuổi thì phải có sự tham gia của người đại diện theo pháp luật;\nd) Việc xử lý kỷ luật lao động phải được ghi thành biên bản.",
+    "positive_id": "45-2019-QH14-đ122-k1",
+    "hard_negatives": [
+      "Điều 123. Thời hiệu xử lý kỷ luật lao động\nThời hiệu xử lý kỷ luật lao động là 06 tháng kể từ ngày xảy ra hành vi vi phạm; trường hợp hành vi vi phạm liên quan trực tiếp đến tài chính, tài sản, tiết lộ bí mật công nghệ, bí mật kinh doanh của người sử dụng lao động thì thời hiệu xử lý kỷ luật lao động là 12 tháng.",
+      "Điều 122. Nguyên tắc, trình tự, thủ tục xử lý kỷ luật lao động\nChính phủ quy định trình tự, thủ tục xử lý kỷ luật lao động."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ123-k1",
+      "45-2019-QH14-đ122-k6"
+    ]
+  },
+  {
+    "id": "sample_0503",
+    "query": "Bộ luật Lao động quy định như thế nào đối với nguyên tắc thương lượng tập thể?",
+    "positive": "Điều 65. Nguyên tắc thương lượng tập thể\nThương lượng tập thể không được trái với quy định của pháp luật.",
+    "positive_id": "45-2019-QH14-đ65-k2",
+    "hard_negatives": [
+      "Điều 65. Nguyên tắc thương lượng tập thể\nThương lượng tập thể được tiến hành theo nguyên tắc tự nguyện, hợp tác, thiện chí, bình đẳng, công khai và minh bạch.",
+      "Điều 4. Chính sách của Nhà nước về lao động\nThúc đẩy người lao động và người sử dụng lao động đối thoại, thương lượng tập thể, xây dựng quan hệ lao động tiến bộ, hài hòa và ổn định."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ65-k1",
+      "45-2019-QH14-đ4-k6"
+    ]
+  },
+  {
+    "id": "sample_0504",
+    "query": "Bộ luật Lao động quy định như thế nào đối với mức lương tối thiểu?",
+    "positive": "Điều 91. Mức lương tối thiểu\nChính phủ quy định chi tiết Điều này; quyết định và công bố mức lương tối thiểu trên cơ sở khuyến nghị của Hội đồng tiền lương quốc gia.",
+    "positive_id": "45-2019-QH14-đ91-k4",
+    "hard_negatives": [
+      "Điều 91. Mức lương tối thiểu\nMức lương tối thiểu là mức lương thấp nhất được trả cho người lao động làm công việc giản đơn nhất trong điều kiện lao động bình thường nhằm bảo đảm mức sống tối thiểu của người lao động và gia đình họ, phù hợp với điều kiện phát triển kinh tế - xã hội.",
+      "Điều 91. Mức lương tối thiểu\nMức lương tối thiểu được điều chỉnh dựa trên mức sống tối thiểu của người lao động và gia đình họ; tương quan giữa mức lương tối thiểu và mức lương trên thị trường; chỉ số giá tiêu dùng, tốc độ tăng trưởng kinh tế; quan hệ cung, cầu lao động; việc làm và thất nghiệp; năng suất lao động; khả năng chi trả của doanh nghiệp."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ91-k1",
+      "45-2019-QH14-đ91-k3"
+    ]
+  },
+  {
+    "id": "sample_0505",
+    "query": "Hợp đồng lao động phải bao gồm những nội dung chủ yếu nào?",
+    "positive": "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nNgười giao kết hợp đồng lao động bên phía người sử dụng lao động là người thuộc một trong các trường hợp sau đây:\na) Người đại diện theo pháp luật của doanh nghiệp hoặc người được ủy quyền theo quy định của pháp luật;\nb) Người đứng đầu cơ quan, tổ chức có tư cách pháp nhân theo quy định của pháp luật hoặc người được ủy quyền theo quy định của pháp luật;\nc) Người đại diện của hộ gia đình, tổ hợp tác, tổ chức khác không có tư cách pháp nhân hoặc người được ủy quyền theo quy định của pháp luật;\nd) Cá nhân trực tiếp sử dụng lao động.",
+    "positive_id": "45-2019-QH14-đ18-k3",
+    "hard_negatives": [
+      "Điều 19. Giao kết nhiều hợp đồng lao động\nNgười lao động có thể giao kết nhiều hợp đồng lao động với nhiều người sử dụng lao động nhưng phải bảo đảm thực hiện đầy đủ các nội dung đã giao kết.",
+      "Điều 64. Nội dung đối thoại tại nơi làm việc\nNgoài nội dung quy định tại khoản 1 Điều này, các bên lựa chọn một hoặc một số nội dung sau đây để đối thoại:\na) Tình hình sản xuất, kinh doanh của người sử dụng lao động;\nb) Việc thực hiện hợp đồng lao động, thỏa ước lao động tập thể, nội quy lao động, quy chế và cam kết, thỏa thuận khác tại nơi làm việc;\nc) Điều kiện làm việc;\nd) Yêu cầu của người lao động, tổ chức đại diện người lao động đối với người sử dụng lao động;\nđ) Yêu cầu của người sử dụng lao động đối với người lao động, tổ chức đại diện người lao động;\ne) Nội dung khác mà một hoặc các bên quan tâm."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ19-k1",
+      "45-2019-QH14-đ64-k2"
+    ]
+  },
+  {
+    "id": "sample_0506",
+    "query": "Quy định của pháp luật lao động về việc làm, giải quyết việc làm là gì?",
+    "positive": "Điều 9. Việc làm, giải quyết việc làm\nNhà nước, người sử dụng lao động và xã hội có trách nhiệm tham gia giải quyết việc làm, bảo đảm cho mọi người có khả năng lao động đều có cơ hội có việc làm.",
+    "positive_id": "45-2019-QH14-đ9-k2",
+    "hard_negatives": [
+      "Điều 9. Việc làm, giải quyết việc làm\nViệc làm là hoạt động lao động tạo ra thu nhập mà pháp luật không cấm.",
+      "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười lao động là người nước ngoài làm việc tại Việt Nam bị trục xuất theo bản án, quyết định của Tòa án đã có hiệu lực pháp luật, quyết định của cơ quan nhà nước có thẩm quyền."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ9-k1",
+      "45-2019-QH14-đ34-k5"
+    ]
+  },
+  {
+    "id": "sample_0507",
+    "query": "Bộ luật Lao động quy định như thế nào đối với nguyên tắc, trình tự, thủ tục xử lý kỷ luật lao động?",
+    "positive": "Điều 122. Nguyên tắc, trình tự, thủ tục xử lý kỷ luật lao động\nKhi một người lao động đồng thời có nhiều hành vi vi phạm kỷ luật lao động thì chỉ áp dụng hình thức kỷ luật cao nhất tương ứng với hành vi vi phạm nặng nhất.",
+    "positive_id": "45-2019-QH14-đ122-k3",
+    "hard_negatives": [
+      "Điều 122. Nguyên tắc, trình tự, thủ tục xử lý kỷ luật lao động\nChính phủ quy định trình tự, thủ tục xử lý kỷ luật lao động.",
+      "Điều 122. Nguyên tắc, trình tự, thủ tục xử lý kỷ luật lao động\nKhông được áp dụng nhiều hình thức xử lý kỷ luật lao động đối với một hành vi vi phạm kỷ luật lao động."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ122-k6",
+      "45-2019-QH14-đ122-k2"
+    ]
+  },
+  {
+    "id": "sample_0508",
+    "query": "Quy định của pháp luật lao động về hiệu lực và thời hạn của thỏa ước lao động tập thể là gì?",
+    "positive": "Điều 78. Hiệu lực và thời hạn của thỏa ước lao động tập thể\nNgày có hiệu lực của thỏa ước lao động tập thể do các bên thỏa thuận và được ghi trong thỏa ước. Trường hợp các bên không thỏa thuận ngày có hiệu lực thì thỏa ước lao động tập thể có hiệu lực kể từ ngày ký kết.",
+    "positive_id": "45-2019-QH14-đ78-k1",
+    "hard_negatives": [
+      "Điều 78. Hiệu lực và thời hạn của thỏa ước lao động tập thể\nThỏa ước lao động tập thể doanh nghiệp có hiệu lực áp dụng đối với người sử dụng lao động và toàn bộ người lao động của doanh nghiệp. Thỏa ước lao động tập thể ngành và thỏa ước lao động tập thể có nhiều doanh nghiệp có hiệu lực áp dụng đối với toàn bộ người sử dụng lao động và người lao động của các doanh nghiệp tham gia thỏa ước lao động tập thể.",
+      "Điều 78. Hiệu lực và thời hạn của thỏa ước lao động tập thể\nThỏa ước lao động tập thể sau khi có hiệu lực phải được các bên tôn trọng và chấp hành."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ78-k3",
+      "45-2019-QH14-đ78-k2"
+    ]
+  },
+  {
+    "id": "sample_0509",
+    "query": "Quy định nào liên quan đến việc thương lượng tập thể được tiến hành theo nguyên tắc tự nguyệ...?",
+    "positive": "Điều 65. Nguyên tắc thương lượng tập thể\nThương lượng tập thể được tiến hành theo nguyên tắc tự nguyện, hợp tác, thiện chí, bình đẳng, công khai và minh bạch.",
+    "positive_id": "45-2019-QH14-đ65-k1",
+    "hard_negatives": [
+      "Điều 65. Nguyên tắc thương lượng tập thể\nThương lượng tập thể không được trái với quy định của pháp luật.",
+      "Điều 7. Xây dựng quan hệ lao động\nQuan hệ lao động được xác lập qua đối thoại, thương lượng, thỏa thuận theo nguyên tắc tự nguyện, thiện chí, bình đẳng, hợp tác, tôn trọng quyền và lợi ích hợp pháp của nhau."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ65-k2",
+      "45-2019-QH14-đ7-k1"
+    ]
+  },
+  {
+    "id": "sample_0510",
+    "query": "Cho tôi biết thông tin chi tiết về tổ chức đối thoại tại nơi làm việc theo luật hiện hành.",
+    "positive": "Điều 63. Tổ chức đối thoại tại nơi làm việc\nNgười sử dụng lao động phải tổ chức đối thoại tại nơi làm việc trong các trường hợp sau đây:\na) Định kỳ ít nhất 01 năm một lần;\nb) Khi có yêu cầu của một hoặc các bên;\nc) Khi có vụ việc quy định tại điểm a khoản 1 Điều 36, các điều 42, 44, 93, 104, 118 và khoản 1 Điều 128 của Bộ luật này.",
+    "positive_id": "45-2019-QH14-đ63-k2",
+    "hard_negatives": [
+      "Điều 63. Tổ chức đối thoại tại nơi làm việc\nChính phủ quy định chi tiết việc tổ chức đối thoại và thực hiện quy chế dân chủ ở cơ sở tại nơi làm việc.",
+      "Điều 63. Tổ chức đối thoại tại nơi làm việc\nĐối thoại tại nơi làm việc là việc chia sẻ thông tin, tham khảo, thảo luận, trao đổi ý kiến giữa người sử dụng lao động với người lao động hoặc tổ chức đại diện người lao động về những vấn đề liên quan đến quyền, lợi ích và quan tâm của các bên tại nơi làm việc nhằm tăng cường sự hiểu biết, hợp tác, cùng xây dựng giải pháp và hài hòa lợi ích."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ63-k4",
+      "45-2019-QH14-đ63-k1"
+    ]
+  },
+  {
+    "id": "sample_0511",
+    "query": "Trường hợp liên quan tới trước khi nhận người lao động vào làm việc thì người sử dụng được xử lý ra sao?",
+    "positive": "Điều 13. Hợp đồng lao động\nTrước khi nhận người lao động vào làm việc thì người sử dụng lao động phải giao kết hợp đồng lao động với người lao động.",
+    "positive_id": "45-2019-QH14-đ13-k2",
+    "hard_negatives": [
+      "Điều 123. Thời hiệu xử lý kỷ luật lao động\nThời hiệu xử lý kỷ luật lao động là 06 tháng kể từ ngày xảy ra hành vi vi phạm; trường hợp hành vi vi phạm liên quan trực tiếp đến tài chính, tài sản, tiết lộ bí mật công nghệ, bí mật kinh doanh của người sử dụng lao động thì thời hiệu xử lý kỷ luật lao động là 12 tháng.",
+      "Điều 16. Nghĩa vụ cung cấp thông tin khi giao kết hợp đồng lao động\nNgười lao động phải cung cấp thông tin trung thực cho người sử dụng lao động về họ tên, ngày tháng năm sinh, giới tính, nơi cư trú, trình độ học vấn, trình độ kỹ năng nghề, xác nhận tình trạng sức khỏe và vấn đề khác liên quan trực tiếp đến việc giao kết hợp đồng lao động mà người sử dụng lao động yêu cầu."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ123-k1",
+      "45-2019-QH14-đ16-k2"
+    ]
+  },
+  {
+    "id": "sample_0512",
+    "query": "Trường hợp liên quan tới sau khi thỏa ước lao động tập thể được ký kết, người sử dụng được xử lý ra sao?",
+    "positive": "Điều 76. Lấy ý kiến và ký kết thỏa ước lao động tập thể\nSau khi thỏa ước lao động tập thể được ký kết, người sử dụng lao động phải công khai cho người lao động của mình biết.",
+    "positive_id": "45-2019-QH14-đ76-k6",
+    "hard_negatives": [
+      "Điều 76. Lấy ý kiến và ký kết thỏa ước lao động tập thể\nĐối với thỏa ước lao động tập thể doanh nghiệp, trước khi ký kết, dự thảo thỏa ước lao động tập thể đã được các bên đàm phán phải được lấy ý kiến của toàn bộ người lao động trong doanh nghiệp. Thỏa ước lao động tập thể doanh nghiệp chỉ được ký kết khi có trên 50% người lao động của doanh nghiệp biểu quyết tán thành.",
+      "Điều 83. Thỏa ước lao động tập thể vô hiệu\nThỏa ước lao động tập thể vô hiệu toàn bộ thuộc một trong các trường hợp sau đây:\na) Toàn bộ nội dung thỏa ước lao động tập thể trái pháp luật;\nb) Người ký kết không đúng thẩm quyền;\nc) Việc ký kết không đúng quy trình thương lượng tập thể."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ76-k1",
+      "45-2019-QH14-đ83-k1"
+    ]
+  },
+  {
+    "id": "sample_0513",
+    "query": "Quy định của pháp luật lao động về hình thức xử lý kỷ luật lao động là gì?",
+    "positive": "Điều 124. Hình thức xử lý kỷ luật lao động\nKhiển trách.",
+    "positive_id": "45-2019-QH14-đ124-k1",
+    "hard_negatives": [
+      "Điều 122. Nguyên tắc, trình tự, thủ tục xử lý kỷ luật lao động\nKhông được áp dụng nhiều hình thức xử lý kỷ luật lao động đối với một hành vi vi phạm kỷ luật lao động.",
+      "Điều 125. Áp dụng hình thức xử lý kỷ luật sa thải\nNgười lao động bị xử lý kỷ luật kéo dài thời hạn nâng lương hoặc cách chức mà tái phạm trong thời gian chưa xóa kỷ luật. Tái phạm là trường hợp người lao động lặp lại hành vi vi phạm đã bị xử lý kỷ luật mà chưa được xóa kỷ luật theo quy định tại Điều 126 của Bộ luật này;"
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ122-k2",
+      "45-2019-QH14-đ125-k3"
+    ]
+  },
+  {
+    "id": "sample_0514",
+    "query": "Cho tôi biết thông tin chi tiết về quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động theo luật hiện hành.",
+    "positive": "Điều 36. Quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động\nNgười sử dụng lao động có quyền đơn phương chấm dứt hợp đồng lao động trong trường hợp sau đây:\na) Người lao động thường xuyên không hoàn thành công việc theo hợp đồng lao động được xác định theo tiêu chí đánh giá mức độ hoàn thành công việc trong quy chế của người sử dụng lao động;\nb) Người lao động bị ốm đau, tai nạn đã điều trị 12 tháng liên tục đối với người làm việc theo hợp đồng lao động không xác định thời hạn hoặc đã điều trị 06 tháng liên tục đối với người làm việc theo hợp đồng lao động xác định thời hạn có thời hạn từ 12 tháng đến 36 tháng hoặc quá nửa thời hạn hợp đồng lao động đối với người làm việc theo hợp đồng lao động xác định thời hạn có thời hạn dưới 12 tháng mà khả năng lao động chưa hồi phục;\nc) Do thiên tai, hỏa hoạn, dịch bệnh nguy hiểm, địch họa hoặc di dời, thu hẹp sản xuất, kinh doanh theo yêu cầu của cơ quan nhà nước có thẩm quyền mà người sử dụng lao động đã tìm mọi biện pháp khắc phục nhưng vẫn buộc phải giảm chỗ làm việc;\nd) Người lao động không có mặt tại nơi làm việc sau thời hạn quy định tại Điều 31 của Bộ luật này;\nđ) Người lao động đủ tuổi nghỉ hưu theo quy định tại Điều 169 của Bộ luật này, trừ trường hợp có thỏa thuận khác;\ne) Người lao động tự ý bỏ việc mà không có lý do chính đáng từ 05 ngày làm việc liên tục trở lên;\ng) Người lao động cung cấp không trung thực thông tin theo quy định tại khoản 2 Điều 16 của Bộ luật này khi giao kết hợp đồng lao động làm ảnh hưởng đến việc tuyển dụng người lao động.",
+    "positive_id": "45-2019-QH14-đ36-k1",
+    "hard_negatives": [
+      "Điều 36. Quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động\nKhi đơn phương chấm dứt hợp đồng lao động quy định tại điểm d và điểm e khoản 1 Điều này thì người sử dụng lao động không phải báo trước cho người lao động.",
+      "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười sử dụng lao động đơn phương chấm dứt hợp đồng lao động theo quy định tại Điều 36 của Bộ luật này."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ36-k3",
+      "45-2019-QH14-đ34-k10"
+    ]
+  },
+  {
+    "id": "sample_0515",
+    "query": "Nguyên tắc trả lương cho người lao động được quy định như thế nào?",
+    "positive": "Điều 94. Nguyên tắc trả lương\nNgười sử dụng lao động phải trả lương trực tiếp, đầy đủ, đúng hạn cho người lao động. Trường hợp người lao động không thể nhận lương trực tiếp thì người sử dụng lao động có thể trả lương cho người được người lao động ủy quyền hợp pháp.",
+    "positive_id": "45-2019-QH14-đ94-k1",
+    "hard_negatives": [
+      "Điều 94. Nguyên tắc trả lương\nNgười sử dụng lao động không được hạn chế hoặc can thiệp vào quyền tự quyết chi tiêu lương của người lao động; không được ép buộc người lao động chi tiêu lương vào việc mua hàng hóa, sử dụng dịch vụ của người sử dụng lao động hoặc của đơn vị khác mà người sử dụng lao động chỉ định.",
+      "Điều 10. Quyền làm việc của người lao động\nĐược tự do lựa chọn việc làm, làm việc cho bất kỳ người sử dụng lao động nào và ở bất kỳ nơi nào mà pháp luật không cấm."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ94-k2",
+      "45-2019-QH14-đ10-k1"
+    ]
+  },
+  {
+    "id": "sample_0516",
+    "query": "Quy định của pháp luật lao động về thỏa ước lao động tập thể vô hiệu là gì?",
+    "positive": "Điều 83. Thỏa ước lao động tập thể vô hiệu\nThỏa ước lao động tập thể vô hiệu toàn bộ thuộc một trong các trường hợp sau đây:\na) Toàn bộ nội dung thỏa ước lao động tập thể trái pháp luật;\nb) Người ký kết không đúng thẩm quyền;\nc) Việc ký kết không đúng quy trình thương lượng tập thể.",
+    "positive_id": "45-2019-QH14-đ83-k1",
+    "hard_negatives": [
+      "Điều 83. Thỏa ước lao động tập thể vô hiệu\nThỏa ước lao động tập thể vô hiệu một phần khi một hoặc một số nội dung trong thỏa ước lao động tập thể trái pháp luật.",
+      "Điều 78. Hiệu lực và thời hạn của thỏa ước lao động tập thể\nThỏa ước lao động tập thể doanh nghiệp có hiệu lực áp dụng đối với người sử dụng lao động và toàn bộ người lao động của doanh nghiệp. Thỏa ước lao động tập thể ngành và thỏa ước lao động tập thể có nhiều doanh nghiệp có hiệu lực áp dụng đối với toàn bộ người sử dụng lao động và người lao động của các doanh nghiệp tham gia thỏa ước lao động tập thể."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ83-k2",
+      "45-2019-QH14-đ78-k3"
+    ]
+  },
+  {
+    "id": "sample_0517",
+    "query": "Tiền lương làm thêm giờ vào ngày nghỉ lễ tết được tính như thế nào?",
+    "positive": "Điều 98. Tiền lương làm thêm giờ, làm việc vào ban đêm\nNgười lao động làm việc vào ban đêm thì được trả thêm ít nhất bằng 30% tiền lương tính theo đơn giá tiền lương hoặc tiền lương thực trả theo công việc của ngày làm việc bình thường.",
+    "positive_id": "45-2019-QH14-đ98-k2",
+    "hard_negatives": [
+      "Điều 98. Tiền lương làm thêm giờ, làm việc vào ban đêm\nNgười lao động làm thêm giờ được trả lương tính theo đơn giá tiền lương hoặc tiền lương thực trả theo công việc đang làm như sau:\na) Vào ngày thường, ít nhất bằng 150%;\nb) Vào ngày nghỉ hằng tuần, ít nhất bằng 200%;\nc) Vào ngày nghỉ lễ, tết, ngày nghỉ có hưởng lương, ít nhất bằng 300% chưa kể tiền lương ngày lễ, tết, ngày nghỉ có hưởng lương đối với người lao động hưởng lương ngày.",
+      "Điều 98. Tiền lương làm thêm giờ, làm việc vào ban đêm\nNgười lao động làm thêm giờ vào ban đêm thì ngoài việc trả lương theo quy định tại khoản 1 và khoản 2 Điều này, người lao động còn được trả thêm 20% tiền lương tính theo đơn giá tiền lương hoặc tiền lương theo công việc làm vào ban ngày của ngày làm việc bình thường hoặc của ngày nghỉ hằng tuần hoặc của ngày nghỉ lễ, tết."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ98-k1",
+      "45-2019-QH14-đ98-k3"
+    ]
+  },
+  {
+    "id": "sample_0518",
+    "query": "Hợp đồng lao động phải bao gồm những nội dung chủ yếu nào?",
+    "positive": "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nNgười được ủy quyền giao kết hợp đồng lao động không được ủy quyền lại cho người khác giao kết hợp đồng lao động.",
+    "positive_id": "45-2019-QH14-đ18-k5",
+    "hard_negatives": [
+      "Điều 19. Giao kết nhiều hợp đồng lao động\nNgười lao động có thể giao kết nhiều hợp đồng lao động với nhiều người sử dụng lao động nhưng phải bảo đảm thực hiện đầy đủ các nội dung đã giao kết.",
+      "Điều 64. Nội dung đối thoại tại nơi làm việc\nNgoài nội dung quy định tại khoản 1 Điều này, các bên lựa chọn một hoặc một số nội dung sau đây để đối thoại:\na) Tình hình sản xuất, kinh doanh của người sử dụng lao động;\nb) Việc thực hiện hợp đồng lao động, thỏa ước lao động tập thể, nội quy lao động, quy chế và cam kết, thỏa thuận khác tại nơi làm việc;\nc) Điều kiện làm việc;\nd) Yêu cầu của người lao động, tổ chức đại diện người lao động đối với người sử dụng lao động;\nđ) Yêu cầu của người sử dụng lao động đối với người lao động, tổ chức đại diện người lao động;\ne) Nội dung khác mà một hoặc các bên quan tâm."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ19-k1",
+      "45-2019-QH14-đ64-k2"
+    ]
+  },
+  {
+    "id": "sample_0519",
+    "query": "Quy định của pháp luật lao động về việc làm, giải quyết việc làm là gì?",
+    "positive": "Điều 9. Việc làm, giải quyết việc làm\nViệc làm là hoạt động lao động tạo ra thu nhập mà pháp luật không cấm.",
+    "positive_id": "45-2019-QH14-đ9-k1",
+    "hard_negatives": [
+      "Điều 9. Việc làm, giải quyết việc làm\nNhà nước, người sử dụng lao động và xã hội có trách nhiệm tham gia giải quyết việc làm, bảo đảm cho mọi người có khả năng lao động đều có cơ hội có việc làm.",
+      "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười lao động là người nước ngoài làm việc tại Việt Nam bị trục xuất theo bản án, quyết định của Tòa án đã có hiệu lực pháp luật, quyết định của cơ quan nhà nước có thẩm quyền."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ9-k2",
+      "45-2019-QH14-đ34-k5"
+    ]
+  },
+  {
+    "id": "sample_0520",
+    "query": "Bộ luật Lao động quy định như thế nào đối với phạm vi điều chỉnh?",
+    "positive": "Điều 1. Phạm vi điều chỉnh\nBộ luật Lao động quy định tiêu chuẩn lao động; quyền, nghĩa vụ, trách nhiệm của người lao động, người sử dụng lao động, tổ chức đại diện người lao động tại cơ sở, tổ chức đại diện người sử dụng lao động trong quan hệ lao động và các quan hệ khác liên quan trực tiếp đến quan hệ lao động; quản lý nhà nước về lao động.",
+    "positive_id": "45-2019-QH14-đ1",
+    "hard_negatives": [
+      "Điều 122. Nguyên tắc, trình tự, thủ tục xử lý kỷ luật lao động\nKhông được áp dụng nhiều hình thức xử lý kỷ luật lao động đối với một hành vi vi phạm kỷ luật lao động.",
+      "Điều 122. Nguyên tắc, trình tự, thủ tục xử lý kỷ luật lao động\nKhi một người lao động đồng thời có nhiều hành vi vi phạm kỷ luật lao động thì chỉ áp dụng hình thức kỷ luật cao nhất tương ứng với hành vi vi phạm nặng nhất."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ122-k2",
+      "45-2019-QH14-đ122-k3"
+    ]
+  },
+  {
+    "id": "sample_0521",
+    "query": "Bộ luật Lao động quy định như thế nào đối với quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động?",
+    "positive": "Điều 36. Quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động\nNgười sử dụng lao động có quyền đơn phương chấm dứt hợp đồng lao động trong trường hợp sau đây:\na) Người lao động thường xuyên không hoàn thành công việc theo hợp đồng lao động được xác định theo tiêu chí đánh giá mức độ hoàn thành công việc trong quy chế của người sử dụng lao động;\nb) Người lao động bị ốm đau, tai nạn đã điều trị 12 tháng liên tục đối với người làm việc theo hợp đồng lao động không xác định thời hạn hoặc đã điều trị 06 tháng liên tục đối với người làm việc theo hợp đồng lao động xác định thời hạn có thời hạn từ 12 tháng đến 36 tháng hoặc quá nửa thời hạn hợp đồng lao động đối với người làm việc theo hợp đồng lao động xác định thời hạn có thời hạn dưới 12 tháng mà khả năng lao động chưa hồi phục;\nc) Do thiên tai, hỏa hoạn, dịch bệnh nguy hiểm, địch họa hoặc di dời, thu hẹp sản xuất, kinh doanh theo yêu cầu của cơ quan nhà nước có thẩm quyền mà người sử dụng lao động đã tìm mọi biện pháp khắc phục nhưng vẫn buộc phải giảm chỗ làm việc;\nd) Người lao động không có mặt tại nơi làm việc sau thời hạn quy định tại Điều 31 của Bộ luật này;\nđ) Người lao động đủ tuổi nghỉ hưu theo quy định tại Điều 169 của Bộ luật này, trừ trường hợp có thỏa thuận khác;\ne) Người lao động tự ý bỏ việc mà không có lý do chính đáng từ 05 ngày làm việc liên tục trở lên;\ng) Người lao động cung cấp không trung thực thông tin theo quy định tại khoản 2 Điều 16 của Bộ luật này khi giao kết hợp đồng lao động làm ảnh hưởng đến việc tuyển dụng người lao động.",
+    "positive_id": "45-2019-QH14-đ36-k1",
+    "hard_negatives": [
+      "Điều 36. Quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động\nKhi đơn phương chấm dứt hợp đồng lao động quy định tại điểm d và điểm e khoản 1 Điều này thì người sử dụng lao động không phải báo trước cho người lao động.",
+      "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười sử dụng lao động đơn phương chấm dứt hợp đồng lao động theo quy định tại Điều 36 của Bộ luật này."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ36-k3",
+      "45-2019-QH14-đ34-k10"
+    ]
+  },
+  {
+    "id": "sample_0522",
+    "query": "Quy định của pháp luật lao động về thời giờ làm việc bình thường là gì?",
+    "positive": "Điều 105. Thời giờ làm việc bình thường\nNgười sử dụng lao động có quyền quy định thời giờ làm việc theo ngày hoặc tuần nhưng phải thông báo cho người lao động biết; trường hợp theo tuần thì thời giờ làm việc bình thường không quá 10 giờ trong 01 ngày và không quá 48 giờ trong 01 tuần. Nhà nước khuyến khích người sử dụng lao động thực hiện tuần làm việc 40 giờ đối với người lao động.",
+    "positive_id": "45-2019-QH14-đ105-k2",
+    "hard_negatives": [
+      "Điều 107. Làm thêm giờ\nThời gian làm thêm giờ là khoảng thời gian làm việc ngoài thời giờ làm việc bình thường theo quy định của pháp luật, thỏa ước lao động tập thể hoặc nội quy lao động.",
+      "Điều 107. Làm thêm giờ\nNgười sử dụng lao động được sử dụng người lao động làm thêm giờ khi đáp ứng đầy đủ các yêu cầu sau đây:\na) Phải được sự đồng ý của người lao động;\nb) Bảo đảm số giờ làm thêm của người lao động không quá 50% số giờ làm việc bình thường trong 01 ngày; trường hợp áp dụng quy định thời giờ làm việc bình thường theo tuần thì tổng số giờ làm việc bình thường và số giờ làm thêm không quá 12 giờ trong 01 ngày; không quá 40 giờ trong 01 tháng;\nc) Bảo đảm số giờ làm thêm của người lao động không quá 200 giờ trong 01 năm, trừ trường hợp quy định tại khoản 3 Điều này."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ107-k1",
+      "45-2019-QH14-đ107-k2"
+    ]
+  },
+  {
+    "id": "sample_0523",
+    "query": "Hợp đồng lao động phải bao gồm những nội dung chủ yếu nào?",
+    "positive": "Điều 13. Hợp đồng lao động\nTrước khi nhận người lao động vào làm việc thì người sử dụng lao động phải giao kết hợp đồng lao động với người lao động.",
+    "positive_id": "45-2019-QH14-đ13-k2",
+    "hard_negatives": [
+      "Điều 19. Giao kết nhiều hợp đồng lao động\nNgười lao động có thể giao kết nhiều hợp đồng lao động với nhiều người sử dụng lao động nhưng phải bảo đảm thực hiện đầy đủ các nội dung đã giao kết.",
+      "Điều 64. Nội dung đối thoại tại nơi làm việc\nNgoài nội dung quy định tại khoản 1 Điều này, các bên lựa chọn một hoặc một số nội dung sau đây để đối thoại:\na) Tình hình sản xuất, kinh doanh của người sử dụng lao động;\nb) Việc thực hiện hợp đồng lao động, thỏa ước lao động tập thể, nội quy lao động, quy chế và cam kết, thỏa thuận khác tại nơi làm việc;\nc) Điều kiện làm việc;\nd) Yêu cầu của người lao động, tổ chức đại diện người lao động đối với người sử dụng lao động;\nđ) Yêu cầu của người sử dụng lao động đối với người lao động, tổ chức đại diện người lao động;\ne) Nội dung khác mà một hoặc các bên quan tâm."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ19-k1",
+      "45-2019-QH14-đ64-k2"
+    ]
+  },
+  {
+    "id": "sample_0524",
+    "query": "Quy định nào liên quan đến việc trường hợp quyền, nghĩa vụ, lợi ích của các bên trong hợp đồ...?",
+    "positive": "Điều 89. Quan hệ giữa hợp đồng lao động, nội quy lao động và thỏa ước lao động tập thể\nTrường hợp quyền, nghĩa vụ, lợi ích của các bên trong hợp đồng lao động đã giao kết trước ngày thỏa ước lao động tập thể có hiệu lực thấp hơn quy định tương ứng của thỏa ước lao động tập thể thì phải thực hiện theo thỏa ước lao động tập thể.",
+    "positive_id": "45-2019-QH14-đ89-k1",
+    "hard_negatives": [
+      "Điều 63. Tổ chức đối thoại tại nơi làm việc\nĐối thoại tại nơi làm việc là việc chia sẻ thông tin, tham khảo, thảo luận, trao đổi ý kiến giữa người sử dụng lao động với người lao động hoặc tổ chức đại diện người lao động về những vấn đề liên quan đến quyền, lợi ích và quan tâm của các bên tại nơi làm việc nhằm tăng cường sự hiểu biết, hợp tác, cùng xây dựng giải pháp và hài hòa lợi ích.",
+      "Điều 89. Quan hệ giữa hợp đồng lao động, nội quy lao động và thỏa ước lao động tập thể\nKhi thỏa ước lao động tập thể có quy định quyền, nghĩa vụ, lợi ích của người lao động có lợi hơn so với quy định của hợp đồng lao động thì thực hiện theo thỏa ước lao động tập thể."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ63-k1",
+      "45-2019-QH14-đ89-k3"
+    ]
+  },
+  {
+    "id": "sample_0525",
+    "query": "Cho tôi biết thông tin chi tiết về làm thêm giờ theo luật hiện hành.",
+    "positive": "Điều 107. Làm thêm giờ\nChính phủ quy định chi tiết Điều này.",
+    "positive_id": "45-2019-QH14-đ107-k5",
+    "hard_negatives": [
+      "Điều 98. Tiền lương làm thêm giờ, làm việc vào ban đêm\nChính phủ quy định chi tiết Điều này.",
+      "Điều 107. Làm thêm giờ\nKhi tổ chức làm thêm giờ theo quy định tại khoản 3 Điều này, người sử dụng lao động phải thông báo bằng văn bản cho cơ quan chuyên môn về lao động thuộc Ủy ban nhân dân cấp tỉnh."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ98-k4",
+      "45-2019-QH14-đ107-k4"
+    ]
+  },
+  {
+    "id": "sample_0526",
+    "query": "Cho tôi biết thông tin chi tiết về quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động theo luật hiện hành.",
+    "positive": "Điều 36. Quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động\nKhi đơn phương chấm dứt hợp đồng lao động trong trường hợp quy định tại các điểm a, b, c, đ và g khoản 1 Điều này, người sử dụng lao động phải báo trước cho người lao động như sau:\na) Ít nhất 45 ngày đối với hợp đồng lao động không xác định thời hạn;\nb) Ít nhất 30 ngày đối với hợp đồng lao động xác định thời hạn có thời hạn từ 12 tháng đến 36 tháng;\nc) Ít nhất 03 ngày làm việc đối với hợp đồng lao động xác định thời hạn có thời hạn dưới 12 tháng và đối với trường hợp quy định tại điểm b khoản 1 Điều này;\nd) Đối với một số ngành, nghề, công việc đặc thù thì thời hạn báo trước được thực hiện theo quy định của Chính phủ.",
+    "positive_id": "45-2019-QH14-đ36-k2",
+    "hard_negatives": [
+      "Điều 36. Quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động\nKhi đơn phương chấm dứt hợp đồng lao động quy định tại điểm d và điểm e khoản 1 Điều này thì người sử dụng lao động không phải báo trước cho người lao động.",
+      "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười sử dụng lao động đơn phương chấm dứt hợp đồng lao động theo quy định tại Điều 36 của Bộ luật này."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ36-k3",
+      "45-2019-QH14-đ34-k10"
+    ]
+  },
+  {
+    "id": "sample_0527",
+    "query": "Hợp đồng lao động phải bao gồm những nội dung chủ yếu nào?",
+    "positive": "Điều 35. Quyền đơn phương chấm dứt hợp đồng lao động của người lao động\nNgười lao động có quyền đơn phương chấm dứt hợp đồng lao động không cần báo trước trong trường hợp sau đây:\na) Không được bố trí theo đúng công việc, địa điểm làm việc hoặc không được bảo đảm điều kiện làm việc theo thỏa thuận, trừ trường hợp quy định tại Điều 29 của Bộ luật này;\nb) Không được trả đủ lương hoặc trả lương không đúng thời hạn, trừ trường hợp quy định tại khoản 4 Điều 97 của Bộ luật này;\nc) Bị người sử dụng lao động ngược đãi, đánh đập hoặc có lời nói, hành vi nhục mạ, hành vi làm ảnh hưởng đến sức khỏe, nhân phẩm, danh dự; bị cưỡng bức lao động;\nd) Bị quấy rối tình dục tại nơi làm việc;\nđ) Lao động nữ mang thai phải nghỉ việc theo quy định tại khoản 1 Điều 138 của Bộ luật này;\ne) Đủ tuổi nghỉ hưu theo quy định tại Điều 169 của Bộ luật này, trừ trường hợp các bên có thỏa thuận khác;\ng) Người sử dụng lao động cung cấp thông tin không trung thực theo quy định tại khoản 1 Điều 16 của Bộ luật này làm ảnh hưởng đến việc thực hiện hợp đồng lao động.",
+    "positive_id": "45-2019-QH14-đ35-k2",
+    "hard_negatives": [
+      "Điều 19. Giao kết nhiều hợp đồng lao động\nNgười lao động có thể giao kết nhiều hợp đồng lao động với nhiều người sử dụng lao động nhưng phải bảo đảm thực hiện đầy đủ các nội dung đã giao kết.",
+      "Điều 64. Nội dung đối thoại tại nơi làm việc\nNgoài nội dung quy định tại khoản 1 Điều này, các bên lựa chọn một hoặc một số nội dung sau đây để đối thoại:\na) Tình hình sản xuất, kinh doanh của người sử dụng lao động;\nb) Việc thực hiện hợp đồng lao động, thỏa ước lao động tập thể, nội quy lao động, quy chế và cam kết, thỏa thuận khác tại nơi làm việc;\nc) Điều kiện làm việc;\nd) Yêu cầu của người lao động, tổ chức đại diện người lao động đối với người sử dụng lao động;\nđ) Yêu cầu của người sử dụng lao động đối với người lao động, tổ chức đại diện người lao động;\ne) Nội dung khác mà một hoặc các bên quan tâm."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ19-k1",
+      "45-2019-QH14-đ64-k2"
+    ]
+  },
+  {
+    "id": "sample_0528",
+    "query": "Doanh nghiệp không giao kết hợp đồng lao động bằng văn bản có vi phạm không?",
+    "positive": "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười lao động là người nước ngoài làm việc tại Việt Nam bị trục xuất theo bản án, quyết định của Tòa án đã có hiệu lực pháp luật, quyết định của cơ quan nhà nước có thẩm quyền.",
+    "positive_id": "45-2019-QH14-đ34-k5",
+    "hard_negatives": [
+      "Điều 17. Hành vi người sử dụng lao động không được làm khi giao kết, thực hiện hợp đồng lao động\nGiữ bản chính giấy tờ tùy thân, văn bằng, chứng chỉ của người lao động.",
+      "Điều 14. Hình thức hợp đồng lao động\nHợp đồng lao động phải được giao kết bằng văn bản và được làm thành 02 bản, người lao động giữ 01 bản, người sử dụng lao động giữ 01 bản, trừ trường hợp quy định tại khoản 2 Điều này. Hợp đồng lao động được giao kết thông qua phương tiện điện tử dưới hình thức thông điệp dữ liệu theo quy định của pháp luật về giao dịch điện tử có giá trị như hợp đồng lao động bằng văn bản."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ17-k1",
+      "45-2019-QH14-đ14-k1"
+    ]
+  },
+  {
+    "id": "sample_0529",
+    "query": "Các trường hợp nào người sử dụng lao động được áp dụng hình thức kỷ luật sa thải?",
+    "positive": "Điều 125. Áp dụng hình thức xử lý kỷ luật sa thải\nNgười lao động bị xử lý kỷ luật kéo dài thời hạn nâng lương hoặc cách chức mà tái phạm trong thời gian chưa xóa kỷ luật. Tái phạm là trường hợp người lao động lặp lại hành vi vi phạm đã bị xử lý kỷ luật mà chưa được xóa kỷ luật theo quy định tại Điều 126 của Bộ luật này;",
+    "positive_id": "45-2019-QH14-đ125-k3",
+    "hard_negatives": [
+      "Điều 125. Áp dụng hình thức xử lý kỷ luật sa thải\nNgười lao động có hành vi trộm cắp, tham ô, đánh bạc, cố ý gây thương tích, sử dụng ma túy tại nơi làm việc;",
+      "Điều 124. Hình thức xử lý kỷ luật lao động\nSa thải."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ125-k1",
+      "45-2019-QH14-đ124-k4"
+    ]
+  },
+  {
+    "id": "sample_0530",
+    "query": "Cho tôi biết thông tin chi tiết về thẩm quyền giao kết hợp đồng lao động theo luật hiện hành.",
+    "positive": "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nNgười giao kết hợp đồng lao động bên phía người sử dụng lao động là người thuộc một trong các trường hợp sau đây:\na) Người đại diện theo pháp luật của doanh nghiệp hoặc người được ủy quyền theo quy định của pháp luật;\nb) Người đứng đầu cơ quan, tổ chức có tư cách pháp nhân theo quy định của pháp luật hoặc người được ủy quyền theo quy định của pháp luật;\nc) Người đại diện của hộ gia đình, tổ hợp tác, tổ chức khác không có tư cách pháp nhân hoặc người được ủy quyền theo quy định của pháp luật;\nd) Cá nhân trực tiếp sử dụng lao động.",
+    "positive_id": "45-2019-QH14-đ18-k3",
+    "hard_negatives": [
+      "Điều 16. Nghĩa vụ cung cấp thông tin khi giao kết hợp đồng lao động\nNgười lao động phải cung cấp thông tin trung thực cho người sử dụng lao động về họ tên, ngày tháng năm sinh, giới tính, nơi cư trú, trình độ học vấn, trình độ kỹ năng nghề, xác nhận tình trạng sức khỏe và vấn đề khác liên quan trực tiếp đến việc giao kết hợp đồng lao động mà người sử dụng lao động yêu cầu.",
+      "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nNgười được ủy quyền giao kết hợp đồng lao động không được ủy quyền lại cho người khác giao kết hợp đồng lao động."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ16-k2",
+      "45-2019-QH14-đ18-k5"
+    ]
+  },
+  {
+    "id": "sample_0531",
+    "query": "Hợp đồng lao động phải bao gồm những nội dung chủ yếu nào?",
+    "positive": "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười lao động là người nước ngoài làm việc tại Việt Nam bị trục xuất theo bản án, quyết định của Tòa án đã có hiệu lực pháp luật, quyết định của cơ quan nhà nước có thẩm quyền.",
+    "positive_id": "45-2019-QH14-đ34-k5",
+    "hard_negatives": [
+      "Điều 19. Giao kết nhiều hợp đồng lao động\nNgười lao động có thể giao kết nhiều hợp đồng lao động với nhiều người sử dụng lao động nhưng phải bảo đảm thực hiện đầy đủ các nội dung đã giao kết.",
+      "Điều 64. Nội dung đối thoại tại nơi làm việc\nNgoài nội dung quy định tại khoản 1 Điều này, các bên lựa chọn một hoặc một số nội dung sau đây để đối thoại:\na) Tình hình sản xuất, kinh doanh của người sử dụng lao động;\nb) Việc thực hiện hợp đồng lao động, thỏa ước lao động tập thể, nội quy lao động, quy chế và cam kết, thỏa thuận khác tại nơi làm việc;\nc) Điều kiện làm việc;\nd) Yêu cầu của người lao động, tổ chức đại diện người lao động đối với người sử dụng lao động;\nđ) Yêu cầu của người sử dụng lao động đối với người lao động, tổ chức đại diện người lao động;\ne) Nội dung khác mà một hoặc các bên quan tâm."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ19-k1",
+      "45-2019-QH14-đ64-k2"
+    ]
+  },
+  {
+    "id": "sample_0532",
+    "query": "Số giờ làm thêm tối đa của người lao động trong một tháng là bao nhiêu?",
+    "positive": "Điều 107. Làm thêm giờ\nThời gian làm thêm giờ là khoảng thời gian làm việc ngoài thời giờ làm việc bình thường theo quy định của pháp luật, thỏa ước lao động tập thể hoặc nội quy lao động.",
+    "positive_id": "45-2019-QH14-đ107-k1",
+    "hard_negatives": [
+      "Điều 107. Làm thêm giờ\nNgười sử dụng lao động được sử dụng người lao động làm thêm giờ khi đáp ứng đầy đủ các yêu cầu sau đây:\na) Phải được sự đồng ý của người lao động;\nb) Bảo đảm số giờ làm thêm của người lao động không quá 50% số giờ làm việc bình thường trong 01 ngày; trường hợp áp dụng quy định thời giờ làm việc bình thường theo tuần thì tổng số giờ làm việc bình thường và số giờ làm thêm không quá 12 giờ trong 01 ngày; không quá 40 giờ trong 01 tháng;\nc) Bảo đảm số giờ làm thêm của người lao động không quá 200 giờ trong 01 năm, trừ trường hợp quy định tại khoản 3 Điều này.",
+      "Điều 113. Nghỉ hằng năm\nNgười lao động làm việc chưa đủ 12 tháng cho một người sử dụng lao động thì số ngày nghỉ hằng năm theo tỷ lệ tương ứng với số tháng làm việc."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ107-k2",
+      "45-2019-QH14-đ113-k2"
+    ]
+  },
+  {
+    "id": "sample_0533",
+    "query": "Doanh nghiệp không giao kết hợp đồng lao động bằng văn bản có vi phạm không?",
+    "positive": "Điều 46. Trợ cấp thôi việc\nKhi hợp đồng lao động chấm dứt theo quy định tại các khoản 1, 2, 3, 4, 6, 7, 9 và 10 Điều 34 của Bộ luật này thì người sử dụng lao động có trách nhiệm trả trợ cấp thôi việc cho người lao động đã làm việc thường xuyên cho mình từ đủ 12 tháng trở lên, mỗi năm làm việc được trợ cấp một nửa tháng tiền lương, trừ trường hợp đủ điều kiện hưởng lương hưu theo quy định của pháp luật về bảo hiểm xã hội và trường hợp quy định tại điểm e khoản 1 Điều 36 của Bộ luật này.",
+    "positive_id": "45-2019-QH14-đ46-k1",
+    "hard_negatives": [
+      "Điều 17. Hành vi người sử dụng lao động không được làm khi giao kết, thực hiện hợp đồng lao động\nGiữ bản chính giấy tờ tùy thân, văn bằng, chứng chỉ của người lao động.",
+      "Điều 14. Hình thức hợp đồng lao động\nHợp đồng lao động phải được giao kết bằng văn bản và được làm thành 02 bản, người lao động giữ 01 bản, người sử dụng lao động giữ 01 bản, trừ trường hợp quy định tại khoản 2 Điều này. Hợp đồng lao động được giao kết thông qua phương tiện điện tử dưới hình thức thông điệp dữ liệu theo quy định của pháp luật về giao dịch điện tử có giá trị như hợp đồng lao động bằng văn bản."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ17-k1",
+      "45-2019-QH14-đ14-k1"
+    ]
+  },
+  {
+    "id": "sample_0534",
+    "query": "Bộ luật Lao động quy định như thế nào đối với lấy ý kiến và ký kết thỏa ước lao động tập thể?",
+    "positive": "Điều 76. Lấy ý kiến và ký kết thỏa ước lao động tập thể\nThời gian, địa điểm và cách thức lấy ý kiến biểu quyết do tổ chức đại diện người lao động quyết định nhưng không được làm ảnh hưởng đến hoạt động sản xuất, kinh doanh bình thường của doanh nghiệp. Người sử dụng lao động không được gây khó khăn, cản trở hoặc can thiệp vào quá trình lấy ý kiến biểu quyết của người lao động.",
+    "positive_id": "45-2019-QH14-đ76-k4",
+    "hard_negatives": [
+      "Điều 76. Lấy ý kiến và ký kết thỏa ước lao động tập thể\nĐối với thỏa ước lao động tập thể ngành, đối tượng lấy ý kiến bao gồm toàn bộ thành viên ban lãnh đạo của các tổ chức đại diện người lao động tại các doanh nghiệp tham gia thương lượng. Thỏa ước lao động tập thể ngành chỉ được ký kết khi có trên 50% tổng số người được lấy ý kiến biểu quyết tán thành.",
+      "Điều 76. Lấy ý kiến và ký kết thỏa ước lao động tập thể\nĐối với thỏa ước lao động tập thể doanh nghiệp, trước khi ký kết, dự thảo thỏa ước lao động tập thể đã được các bên đàm phán phải được lấy ý kiến của toàn bộ người lao động trong doanh nghiệp. Thỏa ước lao động tập thể doanh nghiệp chỉ được ký kết khi có trên 50% người lao động của doanh nghiệp biểu quyết tán thành."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ76-k2",
+      "45-2019-QH14-đ76-k1"
+    ]
+  },
+  {
+    "id": "sample_0535",
+    "query": "Bộ luật Lao động quy định như thế nào đối với làm thêm giờ?",
+    "positive": "Điều 107. Làm thêm giờ\nThời gian làm thêm giờ là khoảng thời gian làm việc ngoài thời giờ làm việc bình thường theo quy định của pháp luật, thỏa ước lao động tập thể hoặc nội quy lao động.",
+    "positive_id": "45-2019-QH14-đ107-k1",
+    "hard_negatives": [
+      "Điều 98. Tiền lương làm thêm giờ, làm việc vào ban đêm\nNgười lao động làm thêm giờ được trả lương tính theo đơn giá tiền lương hoặc tiền lương thực trả theo công việc đang làm như sau:\na) Vào ngày thường, ít nhất bằng 150%;\nb) Vào ngày nghỉ hằng tuần, ít nhất bằng 200%;\nc) Vào ngày nghỉ lễ, tết, ngày nghỉ có hưởng lương, ít nhất bằng 300% chưa kể tiền lương ngày lễ, tết, ngày nghỉ có hưởng lương đối với người lao động hưởng lương ngày.",
+      "Điều 107. Làm thêm giờ\nNgười sử dụng lao động được sử dụng người lao động làm thêm giờ khi đáp ứng đầy đủ các yêu cầu sau đây:\na) Phải được sự đồng ý của người lao động;\nb) Bảo đảm số giờ làm thêm của người lao động không quá 50% số giờ làm việc bình thường trong 01 ngày; trường hợp áp dụng quy định thời giờ làm việc bình thường theo tuần thì tổng số giờ làm việc bình thường và số giờ làm thêm không quá 12 giờ trong 01 ngày; không quá 40 giờ trong 01 tháng;\nc) Bảo đảm số giờ làm thêm của người lao động không quá 200 giờ trong 01 năm, trừ trường hợp quy định tại khoản 3 Điều này."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ98-k1",
+      "45-2019-QH14-đ107-k2"
+    ]
+  },
+  {
+    "id": "sample_0536",
+    "query": "Trường hợp liên quan tới người lao động làm việc chưa đủ 12 tháng cho một người sử dụ được xử lý ra sao?",
+    "positive": "Điều 113. Nghỉ hằng năm\nNgười lao động làm việc chưa đủ 12 tháng cho một người sử dụng lao động thì số ngày nghỉ hằng năm theo tỷ lệ tương ứng với số tháng làm việc.",
+    "positive_id": "45-2019-QH14-đ113-k2",
+    "hard_negatives": [
+      "Điều 123. Thời hiệu xử lý kỷ luật lao động\nThời hiệu xử lý kỷ luật lao động là 06 tháng kể từ ngày xảy ra hành vi vi phạm; trường hợp hành vi vi phạm liên quan trực tiếp đến tài chính, tài sản, tiết lộ bí mật công nghệ, bí mật kinh doanh của người sử dụng lao động thì thời hiệu xử lý kỷ luật lao động là 12 tháng.",
+      "Điều 113. Nghỉ hằng năm\nNgười lao động làm việc đủ 12 tháng cho một người sử dụng lao động thì được nghỉ hằng năm, hưởng nguyên lương theo hợp đồng lao động như sau:\na) 12 ngày làm việc đối với người làm công việc trong điều kiện bình thường;\nb) 14 ngày làm việc đối với người lao động chưa thành niên, lao động là người khuyết tật, người làm nghề, công việc nặng nhọc, độc hại, nguy hiểm;\nc) 16 ngày làm việc đối với người làm nghề, công việc đặc biệt nặng nhọc, độc hại, nguy hiểm."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ123-k1",
+      "45-2019-QH14-đ113-k1"
+    ]
+  },
+  {
+    "id": "sample_0537",
+    "query": "Cho tôi biết thông tin chi tiết về thỏa ước lao động tập thể theo luật hiện hành.",
+    "positive": "Điều 75. Thỏa ước lao động tập thể\nNội dung thỏa ước lao động tập thể không được trái với quy định của pháp luật; khuyến khích có lợi hơn cho người lao động so với quy định của pháp luật.",
+    "positive_id": "45-2019-QH14-đ75-k3",
+    "hard_negatives": [
+      "Điều 76. Lấy ý kiến và ký kết thỏa ước lao động tập thể\nSau khi thỏa ước lao động tập thể được ký kết, người sử dụng lao động phải công khai cho người lao động của mình biết.",
+      "Điều 75. Thỏa ước lao động tập thể\nThỏa ước lao động tập thể là thỏa thuận đạt được thông qua thương lượng tập thể và được các bên ký kết bằng văn bản."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ76-k6",
+      "45-2019-QH14-đ75-k1"
+    ]
+  },
+  {
+    "id": "sample_0538",
+    "query": "Quy định nào liên quan đến việc người lao động là người làm việc cho người sử dụng lao động ...?",
+    "positive": "Điều 3. Giải thích từ ngữ\nNgười lao động là người làm việc cho người sử dụng lao động theo thỏa thuận, được trả lương và chịu sự quản lý, điều hành, giám sát của người sử dụng lao động. Độ tuổi lao động tối thiểu của người lao động là đủ 15 tuổi, trừ trường hợp quy định tại Mục 1 Chương XI của Bộ luật này.",
+    "positive_id": "45-2019-QH14-đ3-k1",
+    "hard_negatives": [
+      "Điều 10. Quyền làm việc của người lao động\nĐược tự do lựa chọn việc làm, làm việc cho bất kỳ người sử dụng lao động nào và ở bất kỳ nơi nào mà pháp luật không cấm.",
+      "Điều 3. Giải thích từ ngữ\nQuấy rối tình dục tại nơi làm việc là hành vi có tính chất tình dục của bất kỳ người nào đối với người khác tại nơi làm việc mà không được người đó mong muốn hoặc chấp nhận. Nơi làm việc là bất kỳ nơi nào mà người lao động thực tế làm việc theo thỏa thuận hoặc phân công của người sử dụng lao động."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ10-k1",
+      "45-2019-QH14-đ3-k9"
+    ]
+  },
+  {
+    "id": "sample_0539",
+    "query": "Trường hợp liên quan tới người lao động trực tiếp giao kết hợp đồng lao động, trừ trư được xử lý ra sao?",
+    "positive": "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nNgười lao động trực tiếp giao kết hợp đồng lao động, trừ trường hợp quy định tại khoản 2 Điều này.",
+    "positive_id": "45-2019-QH14-đ18-k1",
+    "hard_negatives": [
+      "Điều 123. Thời hiệu xử lý kỷ luật lao động\nThời hiệu xử lý kỷ luật lao động là 06 tháng kể từ ngày xảy ra hành vi vi phạm; trường hợp hành vi vi phạm liên quan trực tiếp đến tài chính, tài sản, tiết lộ bí mật công nghệ, bí mật kinh doanh của người sử dụng lao động thì thời hiệu xử lý kỷ luật lao động là 12 tháng.",
+      "Điều 16. Nghĩa vụ cung cấp thông tin khi giao kết hợp đồng lao động\nNgười lao động phải cung cấp thông tin trung thực cho người sử dụng lao động về họ tên, ngày tháng năm sinh, giới tính, nơi cư trú, trình độ học vấn, trình độ kỹ năng nghề, xác nhận tình trạng sức khỏe và vấn đề khác liên quan trực tiếp đến việc giao kết hợp đồng lao động mà người sử dụng lao động yêu cầu."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ123-k1",
+      "45-2019-QH14-đ16-k2"
+    ]
+  },
+  {
+    "id": "sample_0540",
+    "query": "Cho tôi biết thông tin chi tiết về các trường hợp chấm dứt hợp đồng lao động theo luật hiện hành.",
+    "positive": "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nHết hạn hợp đồng lao động, trừ trường hợp quy định tại khoản 4 Điều 177 của Bộ luật này.",
+    "positive_id": "45-2019-QH14-đ34-k1",
+    "hard_negatives": [
+      "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười sử dụng lao động là cá nhân chết; bị Tòa án tuyên bố mất năng lực hành vi dân sự, mất tích hoặc đã chết. Người sử dụng lao động không phải là cá nhân chấm dứt hoạt động hoặc bị cơ quan chuyên môn về đăng ký kinh doanh thuộc Ủy ban nhân dân cấp tỉnh ra thông báo không có người đại diện theo pháp luật, người được ủy quyền thực hiện quyền và nghĩa vụ của người đại diện theo pháp luật.",
+      "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười lao động đơn phương chấm dứt hợp đồng lao động theo quy định tại Điều 35 của Bộ luật này."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ34-k7",
+      "45-2019-QH14-đ34-k9"
+    ]
+  },
+  {
+    "id": "sample_0541",
+    "query": "Quy định nào liên quan đến việc lao động là người nước ngoài làm việc tại việt nam ngoài các...?",
+    "positive": "Điều 112. Nghỉ lễ, tết\nLao động là người nước ngoài làm việc tại Việt Nam ngoài các ngày nghỉ theo quy định tại khoản 1 Điều này còn được nghỉ thêm 01 ngày Tết cổ truyền dân tộc và 01 ngày Quốc khánh của nước họ.",
+    "positive_id": "45-2019-QH14-đ112-k2",
+    "hard_negatives": [
+      "Điều 2. Đối tượng áp dụng\nNgười lao động nước ngoài làm việc tại Việt Nam.",
+      "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nGiấy phép lao động hết hiệu lực đối với người lao động là người nước ngoài làm việc tại Việt Nam theo quy định tại Điều 156 của Bộ luật này."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ2-k3",
+      "45-2019-QH14-đ34-k12"
+    ]
+  },
+  {
+    "id": "sample_0542",
+    "query": "Quy định của pháp luật lao động về thẩm quyền giao kết hợp đồng lao động là gì?",
+    "positive": "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nNgười giao kết hợp đồng lao động bên phía người lao động là người thuộc một trong các trường hợp sau đây:\na) Người lao động từ đủ 18 tuổi trở lên;\nb) Người lao động từ đủ 15 tuổi đến chưa đủ 18 tuổi khi có sự đồng ý bằng văn bản của người đại diện theo pháp luật của người đó;\nc) Người chưa đủ 15 tuổi và người đại diện theo pháp luật của người đó;\nd) Người lao động được những người lao động trong nhóm ủy quyền hợp pháp giao kết hợp đồng lao động.",
+    "positive_id": "45-2019-QH14-đ18-k4",
+    "hard_negatives": [
+      "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nNgười giao kết hợp đồng lao động bên phía người sử dụng lao động là người thuộc một trong các trường hợp sau đây:\na) Người đại diện theo pháp luật của doanh nghiệp hoặc người được ủy quyền theo quy định của pháp luật;\nb) Người đứng đầu cơ quan, tổ chức có tư cách pháp nhân theo quy định của pháp luật hoặc người được ủy quyền theo quy định của pháp luật;\nc) Người đại diện của hộ gia đình, tổ hợp tác, tổ chức khác không có tư cách pháp nhân hoặc người được ủy quyền theo quy định của pháp luật;\nd) Cá nhân trực tiếp sử dụng lao động.",
+      "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nNgười được ủy quyền giao kết hợp đồng lao động không được ủy quyền lại cho người khác giao kết hợp đồng lao động."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ18-k3",
+      "45-2019-QH14-đ18-k5"
+    ]
+  },
+  {
+    "id": "sample_0543",
+    "query": "Cho tôi biết thông tin chi tiết về quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động theo luật hiện hành.",
+    "positive": "Điều 36. Quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động\nKhi đơn phương chấm dứt hợp đồng lao động quy định tại điểm d và điểm e khoản 1 Điều này thì người sử dụng lao động không phải báo trước cho người lao động.",
+    "positive_id": "45-2019-QH14-đ36-k3",
+    "hard_negatives": [
+      "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười sử dụng lao động đơn phương chấm dứt hợp đồng lao động theo quy định tại Điều 36 của Bộ luật này.",
+      "Điều 34. Các trường hợp chấm dứt hợp đồng lao động\nNgười lao động đơn phương chấm dứt hợp đồng lao động theo quy định tại Điều 35 của Bộ luật này."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ34-k10",
+      "45-2019-QH14-đ34-k9"
+    ]
+  },
+  {
+    "id": "sample_0544",
+    "query": "Các hình thức xử lý kỷ luật lao động được áp dụng hiện nay?",
+    "positive": "Điều 123. Thời hiệu xử lý kỷ luật lao động\nThời hiệu xử lý kỷ luật lao động là 06 tháng kể từ ngày xảy ra hành vi vi phạm; trường hợp hành vi vi phạm liên quan trực tiếp đến tài chính, tài sản, tiết lộ bí mật công nghệ, bí mật kinh doanh của người sử dụng lao động thì thời hiệu xử lý kỷ luật lao động là 12 tháng.",
+    "positive_id": "45-2019-QH14-đ123-k1",
+    "hard_negatives": [
+      "Điều 122. Nguyên tắc, trình tự, thủ tục xử lý kỷ luật lao động\nKhông được áp dụng nhiều hình thức xử lý kỷ luật lao động đối với một hành vi vi phạm kỷ luật lao động.",
+      "Điều 125. Áp dụng hình thức xử lý kỷ luật sa thải\nNgười lao động bị xử lý kỷ luật kéo dài thời hạn nâng lương hoặc cách chức mà tái phạm trong thời gian chưa xóa kỷ luật. Tái phạm là trường hợp người lao động lặp lại hành vi vi phạm đã bị xử lý kỷ luật mà chưa được xóa kỷ luật theo quy định tại Điều 126 của Bộ luật này;"
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ122-k2",
+      "45-2019-QH14-đ125-k3"
+    ]
+  },
+  {
+    "id": "sample_0545",
+    "query": "Trường hợp liên quan tới mức lương theo công việc hoặc chức danh không được thấp hơn  được xử lý ra sao?",
+    "positive": "Điều 90. Tiền lương\nMức lương theo công việc hoặc chức danh không được thấp hơn mức lương tối thiểu.",
+    "positive_id": "45-2019-QH14-đ90-k2",
+    "hard_negatives": [
+      "Điều 90. Tiền lương\nTiền lương là số tiền mà người sử dụng lao động trả cho người lao động theo thỏa thuận để thực hiện công việc, bao gồm mức lương theo công việc hoặc chức danh, phụ cấp lương và các khoản bổ sung khác.",
+      "Điều 91. Mức lương tối thiểu\nMức lương tối thiểu là mức lương thấp nhất được trả cho người lao động làm công việc giản đơn nhất trong điều kiện lao động bình thường nhằm bảo đảm mức sống tối thiểu của người lao động và gia đình họ, phù hợp với điều kiện phát triển kinh tế - xã hội."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ90-k1",
+      "45-2019-QH14-đ91-k1"
+    ]
+  },
+  {
+    "id": "sample_0546",
+    "query": "Bộ luật Lao động quy định như thế nào đối với thẩm quyền giao kết hợp đồng lao động?",
+    "positive": "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nNgười lao động trực tiếp giao kết hợp đồng lao động, trừ trường hợp quy định tại khoản 2 Điều này.",
+    "positive_id": "45-2019-QH14-đ18-k1",
+    "hard_negatives": [
+      "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nĐối với công việc theo mùa vụ, công việc nhất định có thời hạn dưới 12 tháng thì nhóm người lao động từ đủ 18 tuổi trở lên có thể ủy quyền cho một người lao động trong nhóm để giao kết hợp đồng lao động; trong trường hợp này, hợp đồng lao động phải được giao kết bằng văn bản và có hiệu lực như giao kết với từng người lao động. Hợp đồng lao động do người được ủy quyền ký kết phải kèm theo danh sách ghi rõ họ tên, ngày tháng năm sinh, giới tính, nơi cư trú và chữ ký của từng người lao động.",
+      "Điều 18. Thẩm quyền giao kết hợp đồng lao động\nNgười được ủy quyền giao kết hợp đồng lao động không được ủy quyền lại cho người khác giao kết hợp đồng lao động."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ18-k2",
+      "45-2019-QH14-đ18-k5"
+    ]
+  },
+  {
+    "id": "sample_0547",
+    "query": "Quy định nào liên quan đến việc người lao động hưởng lương theo sản phẩm, theo khoán được tr...?",
+    "positive": "Điều 97. Kỳ hạn trả lương\nNgười lao động hưởng lương theo sản phẩm, theo khoán được trả lương theo thỏa thuận của hai bên; nếu công việc phải làm trong nhiều tháng thì hằng tháng được tạm ứng tiền lương theo khối lượng công việc đã làm trong tháng.",
+    "positive_id": "45-2019-QH14-đ97-k3",
+    "hard_negatives": [
+      "Điều 35. Quyền đơn phương chấm dứt hợp đồng lao động của người lao động\nNgười lao động có quyền đơn phương chấm dứt hợp đồng lao động không cần báo trước trong trường hợp sau đây:\na) Không được bố trí theo đúng công việc, địa điểm làm việc hoặc không được bảo đảm điều kiện làm việc theo thỏa thuận, trừ trường hợp quy định tại Điều 29 của Bộ luật này;\nb) Không được trả đủ lương hoặc trả lương không đúng thời hạn, trừ trường hợp quy định tại khoản 4 Điều 97 của Bộ luật này;\nc) Bị người sử dụng lao động ngược đãi, đánh đập hoặc có lời nói, hành vi nhục mạ, hành vi làm ảnh hưởng đến sức khỏe, nhân phẩm, danh dự; bị cưỡng bức lao động;\nd) Bị quấy rối tình dục tại nơi làm việc;\nđ) Lao động nữ mang thai phải nghỉ việc theo quy định tại khoản 1 Điều 138 của Bộ luật này;\ne) Đủ tuổi nghỉ hưu theo quy định tại Điều 169 của Bộ luật này, trừ trường hợp các bên có thỏa thuận khác;\ng) Người sử dụng lao động cung cấp thông tin không trung thực theo quy định tại khoản 1 Điều 16 của Bộ luật này làm ảnh hưởng đến việc thực hiện hợp đồng lao động.",
+      "Điều 36. Quyền đơn phương chấm dứt hợp đồng lao động của người sử dụng lao động\nNgười sử dụng lao động có quyền đơn phương chấm dứt hợp đồng lao động trong trường hợp sau đây:\na) Người lao động thường xuyên không hoàn thành công việc theo hợp đồng lao động được xác định theo tiêu chí đánh giá mức độ hoàn thành công việc trong quy chế của người sử dụng lao động;\nb) Người lao động bị ốm đau, tai nạn đã điều trị 12 tháng liên tục đối với người làm việc theo hợp đồng lao động không xác định thời hạn hoặc đã điều trị 06 tháng liên tục đối với người làm việc theo hợp đồng lao động xác định thời hạn có thời hạn từ 12 tháng đến 36 tháng hoặc quá nửa thời hạn hợp đồng lao động đối với người làm việc theo hợp đồng lao động xác định thời hạn có thời hạn dưới 12 tháng mà khả năng lao động chưa hồi phục;\nc) Do thiên tai, hỏa hoạn, dịch bệnh nguy hiểm, địch họa hoặc di dời, thu hẹp sản xuất, kinh doanh theo yêu cầu của cơ quan nhà nước có thẩm quyền mà người sử dụng lao động đã tìm mọi biện pháp khắc phục nhưng vẫn buộc phải giảm chỗ làm việc;\nd) Người lao động không có mặt tại nơi làm việc sau thời hạn quy định tại Điều 31 của Bộ luật này;\nđ) Người lao động đủ tuổi nghỉ hưu theo quy định tại Điều 169 của Bộ luật này, trừ trường hợp có thỏa thuận khác;\ne) Người lao động tự ý bỏ việc mà không có lý do chính đáng từ 05 ngày làm việc liên tục trở lên;\ng) Người lao động cung cấp không trung thực thông tin theo quy định tại khoản 2 Điều 16 của Bộ luật này khi giao kết hợp đồng lao động làm ảnh hưởng đến việc tuyển dụng người lao động."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ35-k2",
+      "45-2019-QH14-đ36-k1"
+    ]
+  },
+  {
+    "id": "sample_0548",
+    "query": "Bộ luật Lao động quy định như thế nào đối với các hành vi bị nghiêm cấm trong lĩnh vực lao động?",
+    "positive": "Điều 8. Các hành vi bị nghiêm cấm trong lĩnh vực lao động\nSử dụng lao động chưa thành niên trái pháp luật.",
+    "positive_id": "45-2019-QH14-đ8-k7",
+    "hard_negatives": [
+      "Điều 8. Các hành vi bị nghiêm cấm trong lĩnh vực lao động\nPhân biệt đối xử trong lao động.",
+      "Điều 8. Các hành vi bị nghiêm cấm trong lĩnh vực lao động\nNgược đãi người lao động, cưỡng bức lao động."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ8-k1",
+      "45-2019-QH14-đ8-k2"
+    ]
+  },
+  {
+    "id": "sample_0549",
+    "query": "Trường hợp liên quan tới cơ quan, tổ chức, cá nhân khác có liên quan trực tiếp đến qu được xử lý ra sao?",
+    "positive": "Điều 2. Đối tượng áp dụng\nCơ quan, tổ chức, cá nhân khác có liên quan trực tiếp đến quan hệ lao động.",
+    "positive_id": "45-2019-QH14-đ2-k4",
+    "hard_negatives": [
+      "Điều 1. Phạm vi điều chỉnh\nBộ luật Lao động quy định tiêu chuẩn lao động; quyền, nghĩa vụ, trách nhiệm của người lao động, người sử dụng lao động, tổ chức đại diện người lao động tại cơ sở, tổ chức đại diện người sử dụng lao động trong quan hệ lao động và các quan hệ khác liên quan trực tiếp đến quan hệ lao động; quản lý nhà nước về lao động.",
+      "Điều 123. Thời hiệu xử lý kỷ luật lao động\nThời hiệu xử lý kỷ luật lao động là 06 tháng kể từ ngày xảy ra hành vi vi phạm; trường hợp hành vi vi phạm liên quan trực tiếp đến tài chính, tài sản, tiết lộ bí mật công nghệ, bí mật kinh doanh của người sử dụng lao động thì thời hiệu xử lý kỷ luật lao động là 12 tháng."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ1",
+      "45-2019-QH14-đ123-k1"
+    ]
+  },
+  {
+    "id": "sample_0550",
+    "query": "Người lao động tự ý nghỉ việc bao nhiêu ngày thì bị áp dụng hình thức sa thải?",
+    "positive": "Điều 125. Áp dụng hình thức xử lý kỷ luật sa thải\nNgười lao động tự ý bỏ việc 05 ngày cộng dồn trong thời hạn 30 ngày hoặc 20 ngày cộng dồn trong thời hạn 365 ngày tính từ ngày đầu tiên tự ý bỏ việc mà không có lý do chính đáng. Trường hợp được coi là có lý do chính đáng bao gồm thiên tai, hỏa hoạn, bản thân, thân nhân bị ốm có xác nhận của cơ sở khám bệnh, chữa bệnh có thẩm quyền và trường hợp khác được quy định trong nội quy lao động.",
+    "positive_id": "45-2019-QH14-đ125-k4",
+    "hard_negatives": [
+      "Điều 125. Áp dụng hình thức xử lý kỷ luật sa thải\nNgười lao động có hành vi trộm cắp, tham ô, đánh bạc, cố ý gây thương tích, sử dụng ma túy tại nơi làm việc;",
+      "Điều 124. Hình thức xử lý kỷ luật lao động\nSa thải."
+    ],
+    "hard_negative_ids": [
+      "45-2019-QH14-đ125-k1",
+      "45-2019-QH14-đ124-k4"
+    ]
+  }
+]

@@ -1,0 +1,259 @@
+[
+  {
+    "id": "Q01",
+    "category": "keyword_match",
+    "question": "Người lao động muốn nghỉ việc thì phải báo trước bao nhiêu ngày?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ35-k1"
+    ]
+  },
+  {
+    "id": "Q02",
+    "category": "keyword_match",
+    "question": "Thời giờ làm thêm tối đa trong một năm của người lao động là bao nhiêu giờ?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ107-k2"
+    ]
+  },
+  {
+    "id": "Q03",
+    "category": "keyword_match",
+    "question": "Các hình thức xử lý kỷ luật lao động gồm những gì?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ124-k1",
+      "45-2019-QH14-đ124-k2",
+      "45-2019-QH14-đ124-k3",
+      "45-2019-QH14-đ124-k4"
+    ]
+  },
+  {
+    "id": "Q04",
+    "category": "keyword_match",
+    "question": "Tiền lương làm thêm giờ vào ban đêm được tính như thế nào?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ98-k3"
+    ]
+  },
+  {
+    "id": "Q05",
+    "category": "keyword_match",
+    "question": "Hình thức xử lý kỷ luật sa thải được áp dụng trong những trường hợp nào?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ125-k1",
+      "45-2019-QH14-đ125-k2",
+      "45-2019-QH14-đ125-k3",
+      "45-2019-QH14-đ125-k4"
+    ]
+  },
+  {
+    "id": "Q06",
+    "category": "keyword_match",
+    "question": "Thời hiệu xử lý kỷ luật lao động tối đa là bao nhiêu tháng?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ123-k1"
+    ]
+  },
+  {
+    "id": "Q07",
+    "category": "keyword_match",
+    "question": "Người lao động được nghỉ làm việc hưởng nguyên lương vào những ngày lễ tết nào?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ112-k1"
+    ]
+  },
+  {
+    "id": "Q08",
+    "category": "keyword_match",
+    "question": "Số ngày nghỉ hằng năm đối với người làm công việc bình thường là bao nhiêu ngày?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ113-k1"
+    ]
+  },
+  {
+    "id": "Q09",
+    "category": "keyword_match",
+    "question": "Trợ cấp thôi việc được tính như thế nào khi người lao động làm việc thường xuyên từ đủ 12 tháng trở lên?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ46-k1"
+    ]
+  },
+  {
+    "id": "Q10",
+    "category": "keyword_match",
+    "question": "Người sử dụng lao động có quyền đơn phương chấm dứt hợp đồng lao động trong trường hợp nào?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ36-k1"
+    ]
+  },
+  {
+    "id": "Q11",
+    "category": "semantic_paraphrase",
+    "question": "Công ty muốn cho nhân viên nghỉ việc thì phải báo trước bao nhiêu ngày?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ36-k2"
+    ]
+  },
+  {
+    "id": "Q12",
+    "category": "semantic_paraphrase",
+    "question": "Làm ca đêm thì công ty phải trả thêm bao nhiêu phần trăm lương?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ98-k2"
+    ]
+  },
+  {
+    "id": "Q13",
+    "category": "semantic_paraphrase",
+    "question": "Đi làm ngày Tết Âm lịch được trả lương tăng thêm như thế nào?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ98-k1"
+    ]
+  },
+  {
+    "id": "Q14",
+    "category": "semantic_paraphrase",
+    "question": "Quyền nghĩa vụ của người lao động bao gồm những điều cơ bản nào?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ5-k1",
+      "45-2019-QH14-đ5-k2"
+    ]
+  },
+  {
+    "id": "Q15",
+    "category": "semantic_paraphrase",
+    "question": "Người lao động có được giao kết nhiều hợp đồng lao động cùng lúc không?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ19-k1"
+    ]
+  },
+  {
+    "id": "Q16",
+    "category": "semantic_paraphrase",
+    "question": "Nhân viên bị bệnh điều trị dài ngày thì công ty có quyền cho nghỉ việc không?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ36-k1"
+    ]
+  },
+  {
+    "id": "Q17",
+    "category": "semantic_paraphrase",
+    "question": "Tự ý bỏ việc không lý do bao nhiêu ngày thì công ty có quyền sa thải?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ125-k4"
+    ]
+  },
+  {
+    "id": "Q18",
+    "category": "semantic_paraphrase",
+    "question": "Công ty chậm trả lương cho nhân viên thì phải đền bù như thế nào?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ94-k2"
+    ]
+  },
+  {
+    "id": "Q19",
+    "category": "semantic_paraphrase",
+    "question": "Quy định về thời giờ làm việc bình thường một ngày không quá bao nhiêu tiếng?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ105-k1"
+    ]
+  },
+  {
+    "id": "Q20",
+    "category": "semantic_paraphrase",
+    "question": "Nhân viên nước ngoài làm việc tại Việt Nam có áp dụng Bộ luật Lao động không?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ2-k1"
+    ]
+  },
+  {
+    "id": "Q21",
+    "category": "complex_legal",
+    "question": "Các hành vi bị nghiêm cấm trong lĩnh vực lao động bao gồm những gì?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ8-k1",
+      "45-2019-QH14-đ8-k2",
+      "45-2019-QH14-đ8-k3",
+      "45-2019-QH14-đ8-k4",
+      "45-2019-QH14-đ8-k5",
+      "45-2019-QH14-đ8-k6",
+      "45-2019-QH14-đ8-k7"
+    ]
+  },
+  {
+    "id": "Q22",
+    "category": "complex_legal",
+    "question": "Doanh nghiệp không được xử lý kỷ luật lao động trong những thời gian nào?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ122-k4"
+    ]
+  },
+  {
+    "id": "Q23",
+    "category": "complex_legal",
+    "question": "Hợp đồng lao động bao gồm những loại nào theo Bộ luật Lao động 2019?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ20-k1"
+    ]
+  },
+  {
+    "id": "Q24",
+    "category": "complex_legal",
+    "question": "Các trường hợp hợp đồng lao động đương nhiên bị chấm dứt bao gồm những trường hợp nào?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ34-k1",
+      "45-2019-QH14-đ34-k2",
+      "45-2019-QH14-đ34-k3",
+      "45-2019-QH14-đ34-k4"
+    ]
+  },
+  {
+    "id": "Q25",
+    "category": "complex_legal",
+    "question": "Khi giao kết hợp đồng lao động với nhiều người sử dụng lao động thì việc tham gia bảo hiểm xã hội được thực hiện như thế nào?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ19-k2"
+    ]
+  },
+  {
+    "id": "Q26",
+    "category": "complex_legal",
+    "question": "Tiền lương được định nghĩa như thế nào trong Bộ luật Lao động?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ90-k1"
+    ]
+  },
+  {
+    "id": "Q27",
+    "category": "complex_legal",
+    "question": "Người lao động làm tăng ca ngày nghỉ hằng tuần được trả lương tối thiểu bao nhiêu phần trăm?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ98-k1"
+    ]
+  },
+  {
+    "id": "Q28",
+    "category": "complex_legal",
+    "question": "Lao động nữ mang thai khi bị kỷ luật lao động có được tạm hoãn xử lý không?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ122-k4"
+    ]
+  },
+  {
+    "id": "Q29",
+    "category": "complex_legal",
+    "question": "Mức lương tối thiểu được xác định theo tháng và theo giờ do cơ quan nào công bố?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ91-k1",
+      "45-2019-QH14-đ91-k4"
+    ]
+  },
+  {
+    "id": "Q30",
+    "category": "complex_legal",
+    "question": "Người lao động có được nghỉ việc ngay không cần báo trước nếu không được trả đủ lương?",
+    "ground_truth_chunk_ids": [
+      "45-2019-QH14-đ35-k2"
+    ]
+  }
+]

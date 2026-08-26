@@ -1,0 +1,15 @@
+DỮ LIỆU NHÂN SỰ & DOANH NGHIỆP TRUY VẤN TỪ CƠ SỞ DỮ LIỆU:
+{db_context}
+
+---
+
+CÂU HỎI CỦA NGƯỜI DÙNG:
+{query}
+
+---
+
+HƯỚNG DẪN TRẢ LỜI:
+- Trả lời ĐÚNG VÀ ĐỦ theo câu hỏi của người dùng, không thêm thông tin rườm rà không được yêu cầu.
+- Định dạng tiền tệ/lương rõ ràng (ví dụ: 70.000.000 VNĐ).
+- Đi thẳng vào câu trả lời, không chào hỏi mở đầu rườm rà.
+

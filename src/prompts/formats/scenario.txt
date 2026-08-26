@@ -1,0 +1,9 @@
+TÓM TẮT KẾT LUẬN CHO TÌNH HUỐNG:
+[Tóm tắt ngắn gọn hướng giải quyết hoặc tính hợp pháp của tình huống.]
+
+PHÂN TÍCH VÀ HƯỚNG DẪN CỤ THỂ CHO TỪNG BÊN:
+- Đối với bên A (ví dụ: Người lao động): [Phân tích quyền, nghĩa vụ, điều kiện...]
+- Đối với bên B (ví dụ: Người sử dụng lao động): [Phân tích thẩm quyền, trách nhiệm...]
+
+CĂN CỨ PHÁP LÝ:
+- [Điều X khoản Y - Tên văn bản luật cụ thể]

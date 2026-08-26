@@ -96,6 +96,22 @@ DOCUMENTS_CONFIG = {
         "title": "Luật Thương mại 2005",
         "issuing_authority": "Quốc hội",
         "status": "ACTIVE"
+    },
+    "latvslđ_84_2015_qh13.txt": {
+        "document_id": "84-2015-QH13",
+        "document_type": "Luật",
+        "document_number": "84/2015/QH13",
+        "title": "Luật An toàn, vệ sinh lao động 2015",
+        "issuing_authority": "Quốc hội",
+        "status": "ACTIVE"
+    },
+    "ldd_31_2024_qh15.txt": {
+        "document_id": "31-2024-QH15",
+        "document_type": "Luật",
+        "document_number": "31/2024/QH15",
+        "title": "Luật Đất đai 2024",
+        "issuing_authority": "Quốc hội",
+        "status": "ACTIVE"
     }
 }
 
@@ -245,6 +261,11 @@ def main():
     print(f"HOÀN THÀNH! Đã lưu duy nhất 1 file chunk tổng hợp chứa {len(all_chunks):,} chunks:")
     print(f"  -> {OUT_CHUNKS_FILE}")
     print("=" * 80)
+    return all_chunks
+
+
+def run_chunking():
+    return main()
 
 
 if __name__ == "__main__":

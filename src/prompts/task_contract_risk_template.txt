@@ -1,0 +1,36 @@
+VĂN BẢN HỢP ĐỒNG CẦN THẨM ĐỊNH:
+---
+{contract_text}
+---
+
+CĂN CỨ PHÁP LÝ ĐỐI CHIẾU (RELEVANT LEGAL PROVISIONS):
+---
+{legal_context}
+---
+
+HƯỚNG DẪN XUẤT BÁO CÁO:
+Hãy thẩm định văn bản hợp đồng trên dựa trên các Căn cứ Pháp lý được cung cấp và kiến thức pháp luật Việt Nam. Xuất báo cáo theo cấu trúc Markdown chuẩn sau:
+
+# 📋 BÁO CÁO THẨM ĐỊNH RỦI RO HỢP ĐỒNG
+
+## I. TỔNG QUAN HỢP ĐỒNG
+- **Loại hợp đồng**: [Xác định loại hợp đồng, ví dụ: Hợp đồng lao động / Mua bán hàng hóa / Dịch vụ / ...]
+- **Điểm An toàn Pháp lý (Contract Health Score)**: [X/100 Điểm] — [Đánh giá mức độ an toàn: An toàn / Cần đàm phán lại / Rất rủi ro]
+- **Thống kê Rủi ro**: 🔴 [Số lượng] Rủi ro Cao | 🟡 [Số lượng] Cần lưu ý | 🟢 [Số lượng] An toàn
+
+## II. CHI TIẾT ĐIỀU KHOẢN RỦI RO & ĐỀ XUẤT SỬA ĐỔI
+
+(Liệt kê từng điều khoản có rủi ro theo định dạng dưới đây)
+
+### [MỨC ĐỘ: 🔴 CAO / 🟡 TRUNG BÌNH] [Tên điều khoản, ví dụ: Điều 5 - Phạt vi phạm]
+- **Nội dung gốc**: "[Trích dẫn nguyên văn điều khoản trong hợp đồng]"
+- **Phân tích Rủi ro**: [Chỉ ra cụ thể điểm vi phạm luật hoặc điểm bất lợi, nguy cơ tiềm ẩn]
+- **Căn cứ pháp lý**: [Source: Điều ... Khoản ... Văn bản luật ...]
+- **Kiến nghị sửa đổi (Redline Suggestion)**:
+  > "[Đưa ra nội dung điều khoản đã được viết lại an toàn, đúng luật và bảo vệ quyền lợi]"
+
+## III. ĐIỀU KHOẢN THIẾU SÓT / CẦN BỔ SUNG (NẾU CÓ)
+- [Liệt kê các điều khoản quan trọng còn thiếu như Bất khả kháng, Bảo mật thông tin, Cơ chế giải quyết tranh chấp...]
+
+## IV. KẾT LUẬN & KHUYẾN NGHỊ HÀNH ĐỘNG
+- [Tóm tắt lời khuyên ngắn gọn cho người ký: Có nên ký ngay không? Các điều khoản tiên quyết cần yêu cầu đối tác sửa đổi trước khi đặt bút ký.]

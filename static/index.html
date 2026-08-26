@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNTech Legal AI — Trợ lý Pháp luật & Thẩm định Hợp đồng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Marked.js for fast Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <div class="brand-text">
+                    <h2>VNTech Legal AI</h2>
+                    <span class="badge-version">v2.0 • Hybrid RAG</span>
+                </div>
+            </div>
+
+            <div class="quick-modes">
+                <div class="section-title">Chế độ hoạt động</div>
+                <button class="mode-btn active" data-mode="all">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Tự động nhận diện</span>
+                </button>
+                <button class="mode-btn" data-mode="legal">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Tra cứu Pháp luật</span>
+                </button>
+                <button class="mode-btn" data-mode="hr">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Nhân sự VNTech</span>
+                </button>
+                <button class="mode-btn" data-mode="contract">
+                    <i class="fa-solid fa-file-contract"></i>
+                    <span>Thẩm định Hợp đồng</span>
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="btn-clear-chat" id="btnClearChat">
+                    <i class="fa-regular fa-trash-can"></i>
+                    <span>Làm mới hội thoại</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="header-left">
+                    <div class="ai-status">
+                        <div class="pulse-indicator"></div>
+                        <div class="status-info">
+                            <h3>Trợ lý Pháp lý & Nhân sự Thông minh</h3>
+                            <p>Sẵn sàng tra cứu điều luật, nhân sự và soi rủi ro hợp đồng</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-icon" id="btnExportChat" title="Tải xuống nội dung hội thoại">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Chat Messages Box -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome Card -->
+                <div class="welcome-card">
+                    <div class="welcome-icon">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h1>Xin chào! Tôi có thể hỗ trợ gì cho bạn hôm nay?</h1>
+                    <p>Hệ thống AI tự động tra cứu từ <strong>10 bộ luật Việt Nam</strong>, cơ sở dữ liệu nhân sự <strong>VNTech</strong> và rà soát bẫy pháp lý trong <strong>hợp đồng / ảnh chụp</strong>.</p>
+                    
+                    <div class="suggestion-grid">
+                        <div class="suggestion-chip" data-prompt="Mức lãi suất vay tối đa theo quy định của Bộ luật Dân sự 2015 là bao nhiêu % một năm?">
+                            <i class="fa-solid fa-percent"></i>
+                            <span>Lãi suất vay tối đa theo Bộ luật Dân sự</span>
+                        </div>
+                        <div class="suggestion-chip" data-prompt="Mức phạt vi phạm hợp đồng tối đa trong thương mại là bao nhiêu phần trăm theo Luật Thương mại 2005?">
+                            <i class="fa-solid fa-gavel"></i>
+                            <span>Mức phạt vi phạm trong Luật Thương mại</span>
+                        </div>
+                        <div class="suggestion-chip" data-prompt="Chức vụ và thông tin của nhân viên Nguyễn Văn An tại công ty VNTech là gì?">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <span>Tra cứu chức vụ nhân sự Nguyễn Văn An</span>
+                        </div>
+                        <div class="suggestion-chip" data-prompt="Hậu quả pháp lý khi một giao dịch dân sự bị vô hiệu theo Bộ luật Dân sự 2015 là gì?">
+                            <i class="fa-solid fa-scale-unbalanced"></i>
+                            <span>Hậu quả pháp lý của giao dịch vô hiệu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chat-input-container">
+                <!-- File Preview Thumbnail -->
+                <div class="file-preview-bar" id="filePreviewBar" style="display: none;">
+                    <div class="file-info-chip">
+                        <i class="fa-solid fa-image" id="previewIcon"></i>
+                        <span id="previewFileName">hop_dong.png</span>
+                        <button class="btn-remove-file" id="btnRemoveFile"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+
+                <form class="input-form" id="chatForm">
+                    <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.webp,.bmp,.txt,.md,.pdf" style="display: none;">
+                    
+                    <button type="button" class="btn-attach" id="btnAttach" title="Tải lên ảnh chụp hợp đồng hoặc file tài liệu">
+                        <i class="fa-solid fa-paperclip"></i>
+                    </button>
+                    
+                    <textarea 
+                        id="userInput" 
+                        class="chat-input" 
+                        placeholder="Hỏi về Luật, Nhân sự VNTech hoặc dán nội dung / kéo thả ảnh hợp đồng vào đây..."
+                        rows="1"
+                    ></textarea>
+
+                    <button type="submit" class="btn-send" id="btnSend" title="Gửi câu hỏi (Enter)">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </button>
+                </form>
+                <div class="input-footer-hint">
+                    <span>Nhấn <strong>Enter</strong> để gửi, <strong>Shift + Enter</strong> để xuống dòng • Hỗ trợ kéo thả ảnh hợp đồng vào khung chat</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Drag and drop full screen overlay -->
+    <div class="dropzone-overlay" id="dropzoneOverlay">
+        <div class="dropzone-content">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <h3>Thả ảnh hoặc file hợp đồng vào đây để thẩm định</h3>
+            <p>Hỗ trợ định dạng: PNG, JPG, JPEG, WEBP, TXT, PDF</p>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

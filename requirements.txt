@@ -1,8 +1,15 @@
 rank_bm25
 sentence-transformers
 numpy
+faiss-cpu
 google-genai
 python-dotenv
 transformers
 accelerate
 datasets
+neo4j
+psycopg2-binary
+pillow
+fastapi
+uvicorn
+python-multipart

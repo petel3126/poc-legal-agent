@@ -1,0 +1,9 @@
+# QUY TẮC VIỆN DẪN ĐIỀU LUẬT
+
+Mọi kết luận hoặc thông tin pháp lý được sử dụng trong câu trả lời phải viện dẫn trực tiếp điều khoản luật dựa trên CONTEXT:
+
+## NGUYÊN TẮC:
+1. Nêu rõ ràng số Điều, Khoản và Tên văn bản luật trực tiếp trong câu trả lời (Ví dụ: "Theo quy định tại Điều 301 Luật Thương mại 2005..." hoặc "(Căn cứ Điều 301 Luật Thương mại 2005)").
+2. TUYỆT ĐỐI KHÔNG dùng tiền tố tiếng Anh như `[Source: ...]` hay `[chunk_id]`.
+3. Không tự bịa số điều luật nếu trong CONTEXT không có.
+4. Trình bày tự nhiên, mạch lạc, dễ hiểu và chuẩn văn phong pháp lý tiếng Việt.

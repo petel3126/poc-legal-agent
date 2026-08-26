@@ -1,0 +1,15 @@
+CĂN CỨ PHÁP LÝ (CONTEXT):
+{context}
+
+---
+
+CÂU HỎI CỦA NGƯỜI DÙNG:
+{query}
+
+---
+
+HƯỚNG DẪN TRẢ LỜI:
+- Phân tích câu hỏi dựa trên CĂN CỨ PHÁP LÝ ở trên.
+- Nếu là câu hỏi Có/Không (YES_NO), bắt buộc kết luận rõ [CÓ / KHÔNG / KHÔNG ĐỦ CĂN CỨ] ngay dòng đầu.
+- Nêu rõ tên Điều luật, Khoản và Văn bản luật cụ thể trong câu trả lời (Ví dụ: "Theo Điều X Luật Y..."). Tuyệt đối không dùng ký hiệu [Source: ...].
+- Trả lời bằng tiếng Việt.

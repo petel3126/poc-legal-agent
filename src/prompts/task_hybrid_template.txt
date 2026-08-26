@@ -1,0 +1,16 @@
+1. DỮ LIỆU NHÂN SỰ & DOANH NGHIỆP TỪ DATABASE:
+{db_context}
+
+2. CĂN CỨ PHÁP LUẬT TỪ HỆ THỐNG RAG:
+{legal_context}
+
+---
+
+CÂU HỎI CỦA NGƯỜI DÙNG:
+{query}
+
+---
+
+HƯỚNG DẪN TRẢ LỜI:
+- Kết hợp cả thông tin nhân sự thực tế và quy định pháp luật liên quan để đưa ra câu trả lời toàn diện.
+- Nêu rõ ràng số liệu nhân sự và viện dẫn cụ thể tên Điều, Khoản, Luật liên quan một cách tự nhiên (Không dùng ký hiệu [Source: ...]).

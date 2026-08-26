@@ -63,6 +63,56 @@ def extract_text_from_image(image_path: str, model_name: str = "gemini-2.5-flash
         return f"Lỗi khi nhận diện hình ảnh qua Gemini Vision: {e}"
 
 
+def extract_text_from_pdf(pdf_path: str, model_name: str = "gemini-2.5-flash") -> str:
+    """
+    Trích xuất văn bản từ file PDF (Hỗ trợ cả PDF dạng văn bản số hóa lẫn PDF scan ảnh tài liệu).
+    1. Ưu tiên đọc nhanh bằng pypdf nếu là Digital PDF có layer text.
+    2. Tự động chuyển sang Gemini Multimodal Document AI nếu là Scanned PDF hoặc pypdf không trích xuất đủ văn bản.
+    """
+    p = Path(pdf_path)
+    if not p.exists():
+        return f"Lỗi: Không tìm thấy file PDF tại '{pdf_path}'."
+
+    # 1. Thử đọc nhanh qua pypdf
+    try:
+        from pypdf import PdfReader
+        reader = PdfReader(str(p))
+        extracted_pages = []
+        for i, page in enumerate(reader.pages):
+            page_text = page.extract_text()
+            if page_text and page_text.strip():
+                extracted_pages.append(f"--- TRANG {i+1} ---\n{page_text.strip()}")
+
+        full_pdf_text = "\n\n".join(extracted_pages).strip()
+        if len(full_pdf_text) >= 80:
+            return full_pdf_text
+    except Exception as e:
+        print(f"[PYPDF INFO] Không thể đọc text trực tiếp ({e}), chuyển sang Gemini Document Vision...")
+
+    # 2. Xử lý Scanned PDF / Image PDF qua Gemini Multimodal
+    client = get_gemini_client()
+    if not client:
+        return "Lỗi: Không thể khởi tạo Gemini Client để xử lý PDF scan."
+
+    try:
+        from google.genai import types
+        pdf_bytes = p.read_bytes()
+        pdf_part = types.Part.from_bytes(data=pdf_bytes, mime_type="application/pdf")
+        prompt = (
+            "Bạn là chuyên gia số hóa và thẩm định hợp đồng pháp lý. "
+            "Hãy đọc và trích xuất toàn bộ nội dung văn bản trong tài liệu PDF này một cách chính xác từng câu chữ, "
+            "giữ nguyên cấu trúc các Điều, Khoản, Tiêu đề, Bảng biểu và các bên tham gia. "
+            "Không thêm bớt hoặc tóm tắt bất kỳ nội dung nào."
+        )
+        response = client.models.generate_content(
+            model=model_name,
+            contents=[pdf_part, prompt]
+        )
+        return response.text.strip()
+    except Exception as e:
+        return f"Lỗi khi đọc file PDF qua Gemini Multimodal: {e}"
+
+
 def split_contract_into_clauses(contract_text: str) -> List[Dict[str, Any]]:
     """
     Tách văn bản hợp đồng thành danh sách các điều khoản có cấu trúc.
@@ -211,7 +261,18 @@ def analyze_contract(
         contract_text = extracted_text
         print("✅ Đã trích xuất thành công nội dung văn bản từ hình ảnh!")
 
-    # 2. Tự động nhận diện nếu người dùng truyền file text (.txt, .md)
+    # 2. Tự động nhận diện nếu người dùng truyền file PDF (.pdf)
+    elif p.exists() and p.suffix.lower() == ".pdf":
+        print(f"\n📑 [PDF EXTRACTOR] Đang trích xuất nội dung từ tài liệu PDF: {p.name} ...")
+        extracted_text = extract_text_from_pdf(str(p), model_name=model_name)
+        if extracted_text.startswith("Lỗi:"):
+            if stream and not stream_callback:
+                print(extracted_text)
+            return extracted_text, []
+        contract_text = extracted_text
+        print("✅ Đã trích xuất thành công nội dung văn bản từ tài liệu PDF!")
+
+    # 3. Tự động nhận diện nếu người dùng truyền file text (.txt, .md, .json)
     elif p.exists() and p.suffix.lower() in (".txt", ".md", ".json"):
         print(f"\n📄 [FILE LOADER] Đang nạp nội dung hợp đồng từ file: {p.name} ...")
         contract_text = p.read_text(encoding="utf-8")

@@ -13,3 +13,4 @@ pillow
 fastapi
 uvicorn
 python-multipart
+pypdf

@@ -87,9 +87,15 @@ def load_rag_pipeline():
         meta = json.loads(META_PATH.read_text(encoding="utf-8"))
         model_name = meta.get("model_name", MODEL_NAME)
 
+    # Nếu là đường dẫn thư mục cục bộ (như finetune/fine_tuned_model)
+    local_model_path = (ROOT_DIR / model_name).resolve()
+    if local_model_path.exists():
+        model_name = str(local_model_path)
+
     try:
         model = SentenceTransformer(model_name)
-    except Exception:
+    except Exception as e:
+        print(f"⚠️ [WARN] Không thể tải model '{model_name}': {e}. Đang dùng model fallback.")
         model = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 
     try:

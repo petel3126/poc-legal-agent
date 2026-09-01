@@ -444,10 +444,16 @@ def run_hybrid_search(chunks_path: Path = CHUNKS_PATH, embeddings_path: Path = E
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
         model_name = meta.get("model_name", MODEL_NAME)
 
+    # Nếu là đường dẫn thư mục cục bộ (như finetune/fine_tuned_model)
+    local_model_path = (Path(__file__).resolve().parent.parent / model_name).resolve()
+    if local_model_path.exists():
+        model_name = str(local_model_path)
+
     print(f"Đang khởi tạo Bi-Encoder embedding model '{model_name}'...")
     try:
         model = SentenceTransformer(model_name)
-    except Exception:
+    except Exception as e:
+        print(f"⚠️ Không thể tải model '{model_name}': {e}. Dùng fallback.")
         model = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 
     print(f"Đang khởi tạo Cross-Encoder Reranker model '{RERANKER_MODEL_NAME}'...")

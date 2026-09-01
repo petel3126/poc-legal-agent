@@ -4,7 +4,9 @@ FROM python:3.11-slim
 # Thiết lập biến môi trường
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PORT=8000
+    PORT=7860 \
+    HOME=/home/user \
+    PATH=/home/user/.local/bin:$PATH
 
 # Thiết lập thư mục làm việc
 WORKDIR /app
@@ -16,19 +18,26 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
+# Tạo user không phải root (UID 1000) theo chuẩn Hugging Face Spaces
+RUN useradd -m -u 1000 user
+
 # Copy requirements và cài đặt Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 # Copy toàn bộ mã nguồn vào container
-COPY . .
+COPY --chown=user:user . .
 
-# Tạo thư mục chứa uploads và data nếu chưa có
-RUN mkdir -p /app/data/uploads /app/data/processed
+# Tạo các thư mục cần thiết và phân quyền cho user 1000
+RUN mkdir -p /app/data/uploads /app/data/processed && \
+    chown -R user:user /app
 
-# Expose cổng 8000
-EXPOSE 8000
+# Chuyển sang user non-root
+USER user
 
-# Khởi chạy server FastAPI với Uvicorn
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+# Expose cổng 7860
+EXPOSE 7860
+
+# Khởi chạy server FastAPI với Uvicorn dùng biến PORT
+CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT:-7860}"]

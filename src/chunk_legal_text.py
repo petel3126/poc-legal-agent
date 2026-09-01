@@ -112,6 +112,22 @@ DOCUMENTS_CONFIG = {
         "title": "Luật Đất đai 2024",
         "issuing_authority": "Quốc hội",
         "status": "ACTIVE"
+    },
+    "nd_126_2020_nd_cp.txt": {
+        "document_id": "126-2020-ND-CP",
+        "document_type": "Nghị định",
+        "document_number": "126/2020/NĐ-CP",
+        "title": "Nghị định 126/2020/NĐ-CP hướng dẫn Luật Quản lý thuế",
+        "issuing_authority": "Chính phủ",
+        "status": "ACTIVE"
+    },
+    "lttncn_04_2007_qh12.txt": {
+        "document_id": "04-2007-QH12",
+        "document_type": "Luật",
+        "document_number": "04/2007/QH12",
+        "title": "Luật Thuế thu nhập cá nhân",
+        "issuing_authority": "Quốc hội",
+        "status": "ACTIVE"
     }
 }
 

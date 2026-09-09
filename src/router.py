@@ -33,9 +33,8 @@ HR_EXPLICIT_KEYWORDS = [
     "vntech", "công ty vntech", "toàn bộ thông tin công ty", "thông tin công ty vntech",
     "mã số thuế công ty", "địa chỉ công ty", "lương trung bình", "thống kê phòng ban",
     "danh sách nhân viên", "danh sách nhân sự", "tổng số nhân viên", "ai là giám đốc",
-    "ai là tổng giám đốc", "ai là ceo", "ai là coo", "ai là trưởng phòng", "ai là kỹ sư",
-    "lương của", "thu nhập của", "sđt của", "số điện thoại của", "email của",
-    "ngày vào làm của", "chức vụ của"
+    "ai là tổng giám đốc", "ai là ceo", "ai là coo", "ai là trưởng phòng",
+    "ai là kế toán trưởng", "nhân sự phòng ban"
 ]
 
 # Từ khóa thành phần bổ trợ nhân sự nội bộ
@@ -45,13 +44,13 @@ HR_GENERAL_KEYWORDS = [
     "c&b", "tuyển dụng", "pháp chế"
 ]
 
-# Danh sách từ khóa đặc trưng cho 10 nguồn Pháp luật (BLLĐ, BLDS, LDN, LĐTT, LSHTT, LTM, LANM, BVQLNTD, LQLT, LATVSLĐ)
+# Danh sách từ khóa đặc trưng cho các nguồn Pháp luật Việt Nam
 LEGAL_KEYWORDS = [
     # Căn cứ pháp lý & quy định chung
     "điều", "khoản", "điểm", "bộ luật", "luật", "quy định", "nghị định", "thông tư",
     "căn cứ pháp lý", "theo quy định", "theo luật", "hợp pháp", "trái pháp luật",
     "vi phạm", "bị cấm", "nghiêm cấm", "bao nhiêu ngày", "bao nhiêu năm", "bao nhiêu phần trăm",
-    "mức phạt", "xử phạt", "thời hiệu", "thời hạn",
+    "mức phạt", "xử phạt", "thời hiệu", "thời hạn", "hợp đồng",
 
     # Luật Doanh nghiệp & Luật Đầu tư
     "tnhh", "công ty tnhh", "công ty cổ phần", "cổ phần", "cổ đông", "hội đồng quản trị",
@@ -67,7 +66,8 @@ LEGAL_KEYWORDS = [
     "trợ cấp thôi việc", "trợ cấp mất việc", "bảo hiểm xã hội", "bhxh", "bảo hiểm y tế", "bhyt",
     "bảo hiểm thất nghiệp", "bhtn", "tai nạn lao động", "bệnh nghề nghiệp",
     "an toàn lao động", "vệ sinh lao động", "người lao động", "người sử dụng lao động",
-    "giữ bản chính", "văn bằng chứng chỉ",
+    "giữ bản chính", "văn bằng chứng chỉ", "chuyển việc", "làm công việc khác",
+    "chậm trả lương", "nợ lương", "tăng ca", "làm thêm giờ", "quyền lợi", "nghĩa vụ",
 
     # Bộ luật Dân sự
     "bồi thường thiệt hại", "ngoài hợp đồng", "hợp đồng dân sự", "giao dịch dân sự",
@@ -91,17 +91,77 @@ LEGAL_KEYWORDS = [
     # Luật An ninh mạng & Bảo vệ quyền lợi người tiêu dùng & Quản lý thuế
     "an ninh mạng", "không gian mạng", "lưu trữ dữ liệu", "an toàn thông tin",
     "người tiêu dùng", "hàng hóa có khuyết tật", "đổi trả sản phẩm", "thu hồi sản phẩm",
-    "khai thuế", "nộp thuế", "thuế thu nhập doanh nghiệp", "quyết toán thuế"
+    "khai thuế", "nộp thuế", "thuế thu nhập", "thuế thu nhập cá nhân", "thuế thu nhập doanh nghiệp",
+    "thuế tncn", "thuế tndn", "quyết toán thuế", "đóng thuế", "biểu thuế"
 ]
+
+
+def has_legal_intent(query: str) -> bool:
+    """
+    Nhận diện câu hỏi có ý định pháp lý / hỏi quyền, nghĩa vụ, tính hợp pháp trong thực tế
+    ngay cả khi người dùng không sử dụng thuật ngữ điều luật viện dẫn.
+    """
+    q = query.lower()
+
+    # Các mẫu câu thể hiện rõ người dùng đang hỏi về pháp luật, quyền lợi, chế độ
+    legal_patterns = [
+        "có được phép",
+        "có được không",
+        "có quyền",
+        "quyền lợi",
+        "theo quy định",
+        "theo pháp luật",
+        "đúng pháp luật",
+        "trái pháp luật",
+        "vi phạm pháp luật",
+        "được bảo đảm quyền",
+        "bảo đảm quyền lợi",
+        "tối đa bao lâu",
+        "được làm thay bao lâu",
+        "làm thay bao lâu",
+        "có phải bồi thường",
+        "có phải trả",
+        "có bắt buộc",
+        "công ty có được",
+        "người lao động có quyền",
+        "người sử dụng lao động có quyền",
+        "có hợp pháp không",
+        "hợp pháp không",
+        "đúng quy định không",
+        "bị xử phạt",
+        "xử phạt như thế nào",
+        "mức phạt",
+        "chế tài",
+        "khiếu nại",
+        "khởi kiện",
+        "không đúng hợp đồng",
+        "không đúng nội dung hợp đồng",
+        "sai hợp đồng",
+        "chuyển việc",
+        "chuyển sang công việc khác",
+        "làm công việc khác",
+        "có được từ chối",
+        "có quyền từ chối",
+        "bắt buộc phải",
+        "ép làm",
+        "hạ lương",
+        "giảm lương",
+        "đuổi việc",
+        "sa thải",
+        "trợ cấp thôi việc",
+        "đơn phương chấm dứt"
+    ]
+
+    return any(pattern in q for pattern in legal_patterns)
 
 
 # Danh sách từ khóa & regex nhận diện Lời chào & Yêu cầu giới thiệu
 GREETING_PATTERNS = [
     r"^(xin\s+)?chào(\s+(bạn|bot|em|anh|chị|ad|admin|mọi\s+người|cả\s+nhà|nhé|nha|ạ))?[\s!.,?~:)]*$",
     r"^(hello|hi|hey|helo|hế\s*lô|halo|hallo|alo|alô)(\s+(bot|bạn|admin|ad|mọi\s+người|nhé|nha|ạ))?[\s!.,?~:)]*$",
-    r"^(good\s+(morning|afternoon|evening|day))[\s!.,?~:)]*$",
+    r"^(good\s+(morning|afternoon|evening|day))(\s+(bot|bạn|ad|admin|all|everyone))?[\s!.,?~:)]*$",
     r"^(bạn\s+là\s+ai|mày\s+là\s+ai|bạn\s+tên\s+gì|bot\s+là\s+ai)[\s!.,?~:)]*$",
-    r"^(bạn\s+(có\s+thể\s+)?(làm|giúp|hỗ\s+trợ)\s+được\s+gì|giới\s+thiệu\s+về\s+bạn|giới\s+thiệu\s+bản\s+thân|chức\s+năng\s+của\s+bạn|hướng\s+dẫn\s+sử\s+dụng|help|trợ\s+giúp)[\s!.,?~:)]*$"
+    r"^((xin\s+)?chào(\s+[a-zà-ỹ]+)?([,\s]+))?(bạn\s+(có\s+thể\s+)?(làm|giúp|hỗ\s+trợ)\s+được\s+gì(\s+cho\s+tôi)?|giới\s+thiệu\s+về\s+bạn|giới\s+thiệu\s+bản\s+thân|chức\s+năng\s+của\s+bạn|hướng\s+dẫn\s+sử\s+dụng|help|trợ\s+giúp)[\s!.,?~:)]*$"
 ]
 
 GREETING_KEYWORDS = [
@@ -153,6 +213,15 @@ def is_greeting(query: str) -> bool:
 
 _CACHED_EMPLOYEE_NAMES: List[str] = None
 
+DEFAULT_VNTECH_EMPLOYEES = [
+    "nguyễn văn an", "trần minh đức", "lê hoàng nam", "phạm quốc bảo",
+    "vũ hải yến", "đỗ tiến đạt", "ngô gia huy", "trịnh văn cường",
+    "lý phương thảo", "hoàng thùy linh", "nguyễn kiều trang", "tạ thị thanh",
+    "bùi thị bích", "đặng thái sơn", "dương đình trí", "võ minh thắng",
+    "phan mai hương", "trịnh kim oanh", "lưu hải đăng", "hồ ngọc hà",
+    "vũ kim oanh"
+]
+
 
 def get_cached_employee_names() -> List[str]:
     """Lấy và cache danh sách họ tên nhân viên để phân loại tức thì (<1ms)."""
@@ -160,35 +229,32 @@ def get_cached_employee_names() -> List[str]:
     if _CACHED_EMPLOYEE_NAMES is None:
         try:
             emps = search_employees(limit=100)
-            _CACHED_EMPLOYEE_NAMES = [e["full_name"].lower() for e in emps if e.get("full_name")]
+            names = [e["full_name"].lower() for e in emps if e.get("full_name")]
+            _CACHED_EMPLOYEE_NAMES = names if names else DEFAULT_VNTECH_EMPLOYEES
         except Exception:
-            _CACHED_EMPLOYEE_NAMES = []
+            _CACHED_EMPLOYEE_NAMES = DEFAULT_VNTECH_EMPLOYEES
     return _CACHED_EMPLOYEE_NAMES
 
 
 def classify_query(query: str) -> str:
     """
-    Phân loại câu hỏi thành một trong các loại:
+    Phân loại câu hỏi thành một trong các loại dựa trên Nguồn Dữ Liệu Cần Thiết:
     - 'GREETING': Lời chào, hỏi thăm, giới thiệu bản thân trợ lý
     - 'CONTRACT_RISK': Yêu cầu thẩm định rủi ro hợp đồng (file ảnh / file text / văn bản dán trực tiếp)
-    - 'HR_DATABASE': Câu hỏi tra cứu dữ liệu nội bộ công ty/nhân viên VNTech
-    - 'LEGAL_RAG': Câu hỏi tra cứu điều luật pháp lý (10 nguồn luật)
-    - 'HYBRID': Câu hỏi kết hợp (nhân sự nội bộ + đối chiếu quy định pháp luật)
+    - 'HYBRID': Cần cả dữ liệu nhân sự VNTech cụ thể + tra cứu quy định pháp luật
+    - 'LEGAL_RAG': Hỏi quy định/quyền/nghĩa vụ pháp luật hoặc tình huống thực tế
+    - 'HR_DATABASE': Cần truy xuất dữ liệu nội bộ công ty/nhân viên VNTech
     """
     cleaned_input = query.strip().strip("'").strip('"')
     p = Path(cleaned_input)
 
-    # 1. Kiểm tra nếu là lời chào hỏi / giới thiệu bản thân
-    if is_greeting(query):
-        return "GREETING"
-
-    # 2. Kiểm tra nếu người dùng truyền đường dẫn file hợp đồng (ảnh hoặc text)
+    # 1. Kiểm tra nếu người dùng truyền đường dẫn file hợp đồng (ảnh hoặc text)
     if p.exists() and p.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp", ".bmp", ".txt", ".md", ".json"):
         return "CONTRACT_RISK"
 
     q_lower = query.lower()
 
-    # 3. Kiểm tra các từ khóa yêu cầu thẩm định / rà soát rủi ro hợp đồng
+    # 2. Kiểm tra các từ khóa yêu cầu thẩm định / rà soát rủi ro hợp đồng
     contract_risk_keywords = [
         "thẩm định hợp đồng", "rà soát hợp đồng", "đánh giá rủi ro hợp đồng",
         "soi hợp đồng", "kiểm tra hợp đồng", "phân tích hợp đồng", "bẫy hợp đồng",
@@ -197,41 +263,45 @@ def classify_query(query: str) -> str:
     if any(kw in q_lower for kw in contract_risk_keywords):
         return "CONTRACT_RISK"
 
-    # 4. Kiểm tra nếu nội dung là một văn bản hợp đồng được dán trực tiếp
+    # 3. Kiểm tra nếu nội dung là một văn bản hợp đồng được dán trực tiếp
     if "cộng hòa xã hội chủ nghĩa việt nam" in q_lower or (
         q_lower.count("điều ") >= 2 and ("bên a" in q_lower or "bên b" in q_lower or "hợp đồng" in q_lower)
     ):
         return "CONTRACT_RISK"
 
-    # 5. Kiểm tra xem có nhắc đến tên nhân viên cụ thể trong CSDL VNTech không
+    # 4. Kiểm tra nếu là lời chào hỏi / giới thiệu bản thân
+    if is_greeting(query):
+        return "GREETING"
+
+    # 5. Phân tích tín hiệu & tính điểm
+    has_legal_intent_signal = has_legal_intent(q_lower)
+    legal_score = sum(1 for kw in LEGAL_KEYWORDS if kw in q_lower)
+
     emp_names = get_cached_employee_names()
     has_specific_name = any(name in q_lower for name in emp_names) if emp_names else False
 
-    # 6. Tính điểm phân loại
     has_explicit_hr = any(kw in q_lower for kw in HR_EXPLICIT_KEYWORDS)
     hr_general_hits = sum(1 for kw in HR_GENERAL_KEYWORDS if kw in q_lower)
-    
     hr_score = (5 if has_specific_name else 0) + (4 if has_explicit_hr else 0) + min(hr_general_hits, 2)
-    legal_score = sum(1 for kw in LEGAL_KEYWORDS if kw in q_lower)
 
-    # 7. Phân luồng điều phối
-    if has_specific_name and legal_score > 0:
-        # Nhắc đến nhân viên cụ thể và hỏi luật áp dụng
+    # 6. Phân luồng điều phối
+
+    # Có tên nhân viên cụ thể + câu hỏi pháp lý
+    if has_specific_name and (
+        legal_score > 0 or has_legal_intent_signal
+    ):
         return "HYBRID"
-    elif hr_score > 0 and legal_score > 0:
-        # Có cả yếu tố hỏi nhân sự và hỏi điều khoản luật
-        if has_explicit_hr or has_specific_name:
-            return "HYBRID"
-        else:
-            return "LEGAL_RAG"
-    elif hr_score >= 3 and legal_score == 0:
-        # Rõ ràng là hỏi nhân sự nội bộ (tên người, lương của ai, thông tin cty vntech)
-        return "HR_DATABASE"
-    elif legal_score > 0:
-        # Rõ ràng là câu hỏi pháp luật
+
+    # Câu hỏi có ý định pháp lý rõ ràng
+    elif has_legal_intent_signal or legal_score >= 2:
         return "LEGAL_RAG"
+
+    # Chỉ hỏi dữ liệu nội bộ
+    elif hr_score >= 3:
+        return "HR_DATABASE"
+
+    # Mặc định
     else:
-        # Mặc định ưu tiên Legal RAG nếu câu hỏi chung chung
         return "LEGAL_RAG"
 
 

@@ -215,6 +215,20 @@ def build_legal_graph(
             print(f"   Đã nạp {min(i + batch_size, len(references_list)):,}/{len(references_list):,} liên kết...", end="\r")
         print()
 
+        # 5. Ingest Quan hệ Hướng dẫn thi hành (:Document)-[:GUIDED_BY]->(:Document)
+        print("[5/5] Đang tạo quan hệ văn bản hướng dẫn thi hành (:GUIDED_BY)...")
+        guides_relations = [
+            {"law_id": "38-2019-QH14", "decree_id": "126-2020-ND-CP"}
+        ]
+        guided_query = """
+        UNWIND $batch AS rel
+        MATCH (law:Document {document_id: rel.law_id})
+        MATCH (decree:Document {document_id: rel.decree_id})
+        MERGE (law)-[:GUIDED_BY]->(decree);
+        """
+        session.run(guided_query, batch=guides_relations)
+        print("   ✓ Đã thiết lập quan hệ (:Document)-[:GUIDED_BY]->(:Document) thành công.")
+
     print("\n🎉 HOÀN TẤT XÂY DỰNG ĐỒ THỊ PHÁP LUẬT TRÊN NEO4J!")
 
 

@@ -5,6 +5,15 @@ Cung cấp REST API, Server-Sent Events (SSE) Streaming và tiếp nhận Upload
 
 import sys
 import os
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+
+import torch
+torch.set_num_threads(1)
+
 import json
 import asyncio
 import queue
@@ -28,6 +37,11 @@ from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer, CrossEncoder
 
 from src.router import classify_query, answer_user_query
+from src.conversational import (
+    GLOBAL_SESSION_MANAGER,
+    classify_followup_intent,
+    rewrite_conversational_query
+)
 from src.contract_analyzer import analyze_contract
 from src.retrieve_hybrid import (
     simple_tokenize,
@@ -216,7 +230,16 @@ async def api_chat_stream(request: ChatRequest):
     if not user_message:
         raise HTTPException(status_code=400, detail="Tin nhắn rỗng.")
 
-    intent = classify_query(user_message)
+    # Phân tích câu hỏi theo ngữ cảnh phiên chat trước khi xác định Intent
+    history = GLOBAL_SESSION_MANAGER.get_history(session_id)
+    query_type, is_followup = classify_followup_intent(user_message, history)
+    query_to_route = user_message
+    if is_followup and query_type == "TYPE_B_FOLLOWUP":
+        query_to_route = rewrite_conversational_query(user_message, history)
+    elif is_followup and query_type == "TYPE_A_EXPLANATION" and history:
+        query_to_route = history[-1].user_query
+
+    intent = classify_query(query_to_route)
     rag_retriever = get_rag_retriever()
 
     async def event_generator():

@@ -122,7 +122,12 @@ TYPE_B_PATTERNS = [
     r"^(vậy còn|thế còn|nếu như vậy thì|trong trường hợp này thì|nếu thế thì)\b",
     r"^(vậy|thế)\s+.*\s+(có được không|thì sao|như thế nào|bao lâu|phải làm sao|tính thế nào)\??$",
     r"^(nếu\s+.*\s+thì\s+.*\s*(sao|không|\?))$",
-    r"\b(như vậy|trong trường hợp đó|khi đó)\s+.*\s+(có được|phải làm gì|xử lý thế nào)"
+    r"\b(như vậy|trong trường hợp đó|khi đó)\s+.*\s+(có được|phải làm gì|xử lý thế nào)",
+    # Các mẫu hỏi xin thêm thông tin / thuộc tính đối tượng ở lượt trước
+    r"^(cho\s+(tôi|mình|em|anh|chị)?\s*(biết|xin|xem)?\s*(thêm\s+)?(thông tin|chi tiết|profile|hồ sơ|liên hệ)[\s\?\.]*)$",
+    r"^(thông tin|chi tiết|cụ thể)\s*(hơn|nữa|gì)?[\s\?\.]*$",
+    r"^(lương|mức lương|thu nhập|sđt|số điện thoại|email|chức vụ|phòng ban|ngày vào làm|địa chỉ)\s*(của\s+(người này|người đó|họ|ông ấy|bà ấy|anh ấy|chị ấy))?\s*(là bao nhiêu|là gì|như thế nào|\?)?$",
+    r"^(ở đâu|làm ở đâu|phòng nào|bộ phận nào|vào làm khi nào|sinh năm bao nhiêu|bao nhiêu tuổi)[\s\?\.]*$"
 ]
 
 
@@ -154,7 +159,7 @@ def classify_followup_intent(
             if len(q_clean.split()) <= 10 or any(kw in q_lower for kw in ["kết luận", "trên", "như vậy", "thế này", "nói trên", "ở trên"]):
                 return "TYPE_A_EXPLANATION", True
 
-    # 2. Rule Check cho Type B (Contextual Follow-up mở rộng đối tượng/tình tiết)
+    # 2. Rule Check cho Type B (Contextual Follow-up mở rộng đối tượng/tình tiết/hỏi thông tin)
     for p in TYPE_B_PATTERNS:
         if re.search(p, q_lower, re.IGNORECASE):
             return "TYPE_B_FOLLOWUP", True
@@ -169,7 +174,11 @@ def classify_followup_intent(
     if len(q_clean.split()) <= 6:
         if any(w in q_lower for w in ["tại sao", "vì sao", "sao thế", "rõ hơn", "căn cứ", "lý do"]):
             return "TYPE_A_EXPLANATION", True
-        if any(w in q_lower for w in ["thế còn", "vậy còn", "nếu vậy", "thì sao", "ai được"]):
+        if any(w in q_lower for w in [
+            "thế còn", "vậy còn", "nếu vậy", "thì sao", "ai được",
+            "thông tin", "chi tiết", "lương", "sđt", "số điện thoại",
+            "email", "chức vụ", "phòng ban", "ngày vào", "ở đâu"
+        ]):
             return "TYPE_B_FOLLOWUP", True
 
     # 5. Fast LLM Fallback (khi quy tắc chưa chắc chắn)
@@ -194,39 +203,57 @@ Phân loại thành 1 trong 3 nhóm duy nhất:
 
 Trả về DUY NHẤT một mã: TYPE_A, TYPE_B hoặc INDEPENDENT."""
 
-    try:
-        config = types.GenerateContentConfig(
-            temperature=0.0,
-            max_output_tokens=20
-        )
-        resp = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt,
-            config=config
-        )
-        label = resp.text.strip().upper()
-        if "TYPE_A" in label:
-            return "TYPE_A_EXPLANATION", True
-        elif "TYPE_B" in label:
-            return "TYPE_B_FOLLOWUP", True
-        else:
-            return "INDEPENDENT", False
-    except Exception:
-        return "INDEPENDENT", False
+    candidate_models = ["gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-flash-lite-latest"]
+    config = types.GenerateContentConfig(
+        temperature=0.0,
+        max_output_tokens=20
+    )
+    for model_name in candidate_models:
+        try:
+            resp = client.models.generate_content(
+                model=model_name,
+                contents=prompt,
+                config=config
+            )
+            label = resp.text.strip().upper()
+            if "TYPE_A" in label:
+                return "TYPE_A_EXPLANATION", True
+            elif "TYPE_B" in label:
+                return "TYPE_B_FOLLOWUP", True
+            else:
+                return "INDEPENDENT", False
+        except Exception:
+            continue
+    return "INDEPENDENT", False
 
 
 # =====================================================================
-# 2. LEGAL CONTEXT-AWARE QUERY REWRITER
+# 2. CONVERSATIONAL QUERY REWRITER
 # =====================================================================
 
-REWRITER_SYSTEM_PROMPT = """Bạn là chuyên gia tái cấu trúc truy vấn pháp lý (Legal Conversational Query Rewriter).
-Nhiệm vụ: Viết lại câu hỏi phụ thuộc ngữ cảnh của người dùng thành một câu hỏi ĐỘC LẬP, HOÀN CHỈNH VỀ NỘI DUNG VÀ THUẬT NGỮ PHÁP LÝ để phục vụ tra cứu RAG.
+REWRITER_SYSTEM_PROMPT = """Bạn là chuyên gia tái cấu trúc truy vấn hội thoại (Conversational Query Rewriter) cho hệ thống Trợ lý Pháp luật & Quản trị Nhân sự VNTech.
+Nhiệm vụ: Viết lại câu hỏi phụ thuộc ngữ cảnh của người dùng thành một câu hỏi ĐỘC LẬP, ĐẦY ĐỦ CHỦ THỂ VÀ THUẬT NGỮ để phục vụ tra cứu.
 
 NGUYÊN TẮC BẤT DI BẤT DỊCH:
-1. CHỈ khôi phục các đại từ thay thế (như "tôi", "ông ấy", "A", "thế này", "trường hợp đó") dựa trên sự thật đã nêu trong lịch sử.
-2. TUYỆT ĐỐI KHÔNG tự ý suy diễn, không thêm thắt các tình tiết mới, không đưa ra phán đoán hoặc kết luận pháp lý thay cho người dùng (Ví dụ: KHÔNG được tự thêm từ "chỉ được hưởng", "do vi phạm hợp đồng", "bị xử phạt").
-3. Giữ nguyên mục đích hỏi ban đầu của người dùng nhưng diễn đạt rõ ràng, đầy đủ các chủ thể và quan hệ pháp lý.
-4. Trả về DUY NHẤT câu truy vấn đã được viết lại, không giải thích hay mở ngoặc."""
+1. Nếu lượt trước đang hỏi về nhân sự hoặc thực thể công ty (ví dụ: 'Vũ Kim Oanh là ai', 'Nguyễn Văn An') và câu tiếp theo hỏi thuộc tính/yêu cầu thêm thông tin ('cho tôi thông tin', 'lương bao nhiêu', 'số điện thoại', 'ở phòng nào'), hãy viết lại gắn kèm rõ tên nhân sự đó (ví dụ: 'Cho tôi thông tin chi tiết về nhân sự Vũ Kim Oanh').
+2. Nếu câu trước là tình huống pháp lý, khôi phục đầy đủ các đại từ thay thế và quan hệ pháp lý.
+3. TUYỆT ĐỐI KHÔNG tự ý suy diễn hoặc thêm kết luận giả định.
+4. Trả về DUY NHẤT câu truy vấn đã được viết lại, không giải thích."""
+
+
+def extract_entity_from_history(history: List[ConversationTurn]) -> Optional[str]:
+    """Tìm tên nhân sự hoặc thực thể nổi bật trong các lượt trước."""
+    try:
+        from src.router import get_cached_employee_names
+        emp_names = get_cached_employee_names()
+        for turn in reversed(history[-3:]):
+            text = (turn.user_query + " " + turn.answer).lower()
+            for name in emp_names:
+                if name in text:
+                    return name.title()
+    except Exception:
+        pass
+    return None
 
 
 def sanitize_rewritten_query(raw_rewritten: str, original_query: str) -> str:
@@ -245,9 +272,26 @@ def rewrite_conversational_query(
     history: List[ConversationTurn],
     gemini_client=None
 ) -> str:
-    """Tái cấu trúc câu hỏi nối tiếp thành câu hỏi độc lập đầy đủ ngữ cảnh và định hướng pháp lý chuẩn xác."""
+    """Tái cấu trúc câu hỏi nối tiếp thành câu hỏi độc lập đầy đủ ngữ cảnh."""
     if not history:
         return query
+
+    # 1. Fast Rule-based Resolution cho câu hỏi nhân sự kế thừa lượt trước (0ms latency)
+    emp_name = extract_entity_from_history(history)
+    if emp_name:
+        q_l = query.lower().strip()
+        if any(k in q_l for k in ["cho tôi thông tin", "cho xin thông tin", "thông tin chi tiết", "thông tin cụ thể", "thông tin", "chi tiết", "profile", "hồ sơ"]):
+            return f"Cho tôi thông tin chi tiết về nhân sự {emp_name}"
+        elif "lương" in q_l or "thu nhập" in q_l:
+            return f"Mức lương của nhân sự {emp_name} là bao nhiêu?"
+        elif any(k in q_l for k in ["sđt", "số điện thoại", "liên hệ"]):
+            return f"Số điện thoại liên hệ của nhân sự {emp_name} là gì?"
+        elif "email" in q_l:
+            return f"Địa chỉ email của nhân sự {emp_name} là gì?"
+        elif "chức vụ" in q_l:
+            return f"Chức vụ của nhân sự {emp_name} là gì?"
+        elif "phòng" in q_l:
+            return f"Nhân sự {emp_name} làm việc ở phòng ban nào?"
 
     client = gemini_client or get_gemini_client()
     if not client or types is None:
@@ -274,7 +318,7 @@ CÂU HỎI PHỤ THUỘC CỦA NGƯỜI DÙNG:
 
 Hãy viết lại câu hỏi trên thành một câu hỏi ĐỘC LẬP, ĐẦY ĐỦ CHỦ THỂ VÀ QUAN HỆ PHÁP LÝ (Không thêm bớt tình tiết hay kết luận suy đoán):"""
 
-    candidate_models = ["gemini-2.5-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite"]
+    candidate_models = ["gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-flash-lite-latest"]
     for model_name in candidate_models:
         try:
             config = types.GenerateContentConfig(

@@ -78,7 +78,7 @@ def format_legal_context(top_chunks: list, expanded_chunks: list = None) -> str:
 def call_gemini(
     user_prompt: str,
     system_instruction: Optional[str] = None,
-    preferred_model: str = "gemini-2.5-flash",
+    preferred_model: str = "gemini-3.6-flash",
     temperature: float = 0.1,
     stream: bool = True,
     stream_callback=None
@@ -87,11 +87,20 @@ def call_gemini(
     client = get_gemini_client()
     if not client:
         err_msg = "Không thể sinh câu trả lời do chưa cấu hình GEMINI_API_KEY trong file .env."
-        if stream and not stream_callback:
+        if stream_callback:
+            stream_callback(err_msg)
+        elif stream:
             print(err_msg)
         return err_msg
 
-    candidate_models = [preferred_model, "gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-2.5-pro"]
+    candidate_models = [
+        preferred_model,
+        "gemini-3.6-flash",
+        "gemini-3.8-flash",
+        "gemini-flash-lite-latest",
+        "gemini-3.5-flash-lite",
+        "gemini-2.5-flash"
+    ]
     seen = set()
     models_to_try = [m for m in candidate_models if not (m in seen or seen.add(m))]
 
@@ -135,8 +144,10 @@ def call_gemini(
                 else:
                     break
 
-    err_msg = f"Rất tiếc, đã xảy ra lỗi khi tạo câu trả lời tự động: {last_error}"
-    if stream and not stream_callback:
+    err_msg = f"⚠️ Rất tiếc, đã xảy ra lỗi khi tạo câu trả lời tự động: {last_error}"
+    if stream_callback:
+        stream_callback(err_msg)
+    elif stream:
         print(err_msg)
     return err_msg
 
@@ -145,7 +156,7 @@ def generate_legal_answer(
     query: str,
     top_chunks: list,
     expanded_chunks: list = None,
-    model_name: str = "gemini-2.5-flash",
+    model_name: str = "gemini-3.6-flash",
     stream: bool = True,
     stream_callback=None
 ) -> str:
@@ -203,6 +214,8 @@ NHIỆM VỤ CỦA BẠN:
         stream=stream,
         stream_callback=stream_callback
     )
+
+
 
 
 def generate_hrm_answer(

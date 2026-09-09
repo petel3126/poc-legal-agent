@@ -33,7 +33,7 @@ DOCUMENTS_CONFIG = {
         "issuing_authority": "Quốc hội",
         "status": "ACTIVE"
     },
-    "blld_45_2019_qh14_partial.txt": {
+    "blld_45_2019_qh14.txt": {
         "document_id": "45-2019-QH14",
         "document_type": "Bộ luật",
         "document_number": "45/2019/QH14",
@@ -265,9 +265,9 @@ def main():
         all_chunks.extend(chunks)
         print(f"  ✓ {meta['title']} ({meta['document_id']}): {len(chunks):,} chunks")
 
-    # Dọn dẹp tất cả các file JSON cũ rác trong data/processed/
+    # Dọn dẹp các file JSON tạm trong data/processed/ (giữ lại legal_embedding_meta.json)
     for f in os.listdir(PROCESSED_DIR):
-        if f.endswith(".json"):
+        if f.endswith(".json") and f not in ("legal_embedding_meta.json", "legal_chunks.json"):
             (PROCESSED_DIR / f).unlink()
 
     # Ghi toàn bộ chunks vào file duy nhất: data/processed/legal_chunks.json

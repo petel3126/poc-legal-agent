@@ -10,6 +10,7 @@ CÂU HỎI CỦA NGƯỜI DÙNG:
 
 HƯỚNG DẪN TRẢ LỜI:
 - Phân tích câu hỏi dựa trên CĂN CỨ PHÁP LÝ ở trên.
-- Nếu là câu hỏi Có/Không (YES_NO), bắt buộc kết luận rõ [CÓ / KHÔNG / KHÔNG ĐỦ CĂN CỨ] ngay dòng đầu.
+- Được phép vận dụng suy luận logic và tam đoạn luận pháp lý: nếu sự việc cụ thể của người dùng có thể quy nạp vào nguyên tắc/hành vi bao trùm trong điều luật, hãy kết luận rõ ràng, không từ chối trả lời một cách máy móc.
+- Nếu là câu hỏi Có/Không (YES_NO), bắt buộc kết luận rõ [CÓ / KHÔNG / ĐƯỢC PHÉP / BỊ CẤM] ngay dòng đầu.
 - Nêu rõ tên Điều luật, Khoản và Văn bản luật cụ thể trong câu trả lời (Ví dụ: "Theo Điều X Luật Y..."). Tuyệt đối không dùng ký hiệu [Source: ...].
-- Trả lời bằng tiếng Việt.
+- Trả lời bằng tiếng Việt chuyên nghiệp, gãy gọn.

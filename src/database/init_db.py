@@ -82,8 +82,12 @@ INSERT INTO employees (company_id, full_name, email, phone, department, position
 (1, 'Lưu Hải Đăng', 'dang.lh@vntech.vn', '0901234519', 'Marketing', 'Chuyên viên Digital Marketing & SEO', 15000000, '2023-06-01', TRUE),
 
 -- Phòng Pháp chế & Hành chính
-(1, 'Hồ Ngọc Hà', 'ha.hn@vntech.vn', '0901234520', 'Pháp chế', 'Chuyên viên Pháp chế Doanh nghiệp', 22000000, '2022-01-15', TRUE);
+(1, 'Hồ Ngọc Hà', 'ha.hn@vntech.vn', '0901234520', 'Pháp chế', 'Chuyên viên Pháp chế Doanh nghiệp', 22000000, '2022-01-15', TRUE),
+
+-- vợ Lâm
+(1, 'Vũ Kim Oanh', 'Oanhthuixinhgai@gmail.com', '0902177109', 'vợ Lâm', 'quản trị gia đình', 32000000, '2019-05-15', TRUE);
 """
+
 
 
 def init_database():

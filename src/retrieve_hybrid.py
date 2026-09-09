@@ -9,16 +9,26 @@ Các bước xử lý:
   Bước 6: Reference Expansion (Mở rộng văn bản được dẫn chiếu)
 """
 
+import os
 import sys
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+
+import torch
+torch.set_num_threads(1)
+
 import json
 import re
+from typing import Optional, List, Dict, Any, Tuple
 from datetime import date
 from pathlib import Path
 import numpy as np
 from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer, CrossEncoder
 from src.llm_generation import generate_legal_answer, get_gemini_client
-from src.router import answer_user_query, classify_query
 
 try:
     from google.genai import types
@@ -50,6 +60,65 @@ Quy tắc phân rã:
 3. Không thêm các suy đoán sai lệch, chỉ tập trung vào các vấn đề pháp lý then chốt cần tra cứu.
 4. Trả về DUY NHẤT một JSON array chứa danh sách các chuỗi sub-queries: ["sub_query_1", "sub_query_2", ...]
 """
+# =====================================================================
+# TRỤ CỘT 4: SUBSUMPTIVE QUERY ENRICHMENT (QUY NẠP TỪ VỰNG ĐỜI THƯỜNG -> PHÁP LÝ)
+# =====================================================================
+LEGAL_SUBSUMPTION_DICTIONARY = [
+    # Nhóm hồ sơ, văn bằng, học vấn, bằng cấp
+    (r"\b(bằng\s+cấp|bằng\s+cấp\s+ba|bằng\s+cấp\s+3|mượn\s+bằng|khai\s+bằng|học\s+hết\s+lớp\s+\d+|không\s+có\s+bằng|gian\s+dối\s+bằng|khai\s+man)\b",
+     "trình độ học vấn văn bằng chứng chỉ nghĩa vụ cung cấp thông tin trung thực khi giao kết hợp đồng lao động"),
+    
+    # Nhóm giữ giấy tờ tùy thân, văn bằng chứng chỉ, bản chính (Điều 17 Khoản 1 BLLĐ 2019)
+    (r"(giấy\s+tờ\s+tùy\s+thân|bản\s+chính\s+giấy\s+tờ|giữ\s+.*(giấy\s+tờ|cccd|căn\s+cước|chứng\s+minh|hộ\s+chiếu|bằng\s+gốc|văn\s+bằng|chứng\s+chỉ)|(giấy\s+tờ|cccd|căn\s+cước|chứng\s+minh|hộ\s+chiếu|bằng\s+gốc|văn\s+bằng|chứng\s+chỉ).*giữ|thu\s+giữ\s+giấy\s+tờ|tịch\s+thu\s+giấy\s+tờ|nộp\s+giấy\s+tờ|đưa\s+giấy\s+tờ|giữ\s+bằng|giữ\s+cccd)",
+     "giữ bản chính giấy tờ tùy thân văn bằng chứng chỉ hành vi người sử dụng lao động không được làm khi giao kết thực hiện hợp đồng lao động"),
+
+    # Nhóm yêu cầu đặt cọc tiền, giữ tài sản khi xin việc (Điều 17 Khoản 2 BLLĐ 2019)
+    (r"(đặt\s+cọc\s+tiền|thế\s+chấp\s+tiền|ký\s+quỹ\s+xin\s+việc|bảo\s+đảm\s+bằng\s+tiền|nộp\s+tiền\s+cọc|giữ\s+tiền\s+cọc|đặt\s+tiền\s+mới\s+cho\s+làm)",
+     "yêu cầu người lao động thực hiện biện pháp bảo đảm bằng tiền hoặc tài sản khác cho việc thực hiện hợp đồng lao động hành vi không được làm"),
+    
+    # Nhóm chấm dứt hợp đồng, nghỉ việc
+    (r"\b(nghỉ\s+việc\s+đột\s+ngột|tự\s+ý\s+bỏ\s+việc|nghỉ\s+ngang|bỏ\s+việc\s+không\s+phép|tự\s+ý\s+nghỉ)\b",
+     "đơn phương chấm dứt hợp đồng lao động tự ý bỏ việc mà không có lý do chính đáng thời hạn báo trước"),
+    
+    # Nhóm tiền lương, nợ lương
+    (r"\b(quỵt\s+lương|chậm\s+trả\s+lương|nợ\s+lương|không\s+trả\s+lương|giam\s+lương)\b",
+     "tiền lương nguyên tắc trả lương chậm trả lương đền bù tiền lãi"),
+     
+    # Nhóm kỷ luật, phạt tiền
+    (r"\b(phạt\s+tiền\s+trừ\s+lương|trừ\s+tiền\s+lương|cắt\s+lương\s+phạt|phạt\s+tiền\s+nhân\s+viên)\b",
+     "kỷ luật lao động các hành vi bị nghiêm cấm khi xử lý kỷ luật lao động phạt tiền cắt lương thay xử lý kỷ luật"),
+     
+    # Nhóm thử việc
+    (r"\b(thử\s+việc\s+kéo\s+dài|thử\s+việc\s+\d+\s+tháng|thử\s+việc\s+lại)\b",
+     "thời gian thử việc hợp đồng thử việc tiền lương trong thời gian thử việc"),
+     
+    # Nhóm dân sự: thừa kế, sổ đỏ
+    (r"\b(chết\s+không\s+để\s+lại\s+di\s+chúc|mất\s+không\s+có\s+di\s+chúc|không\s+di\s+chúc)\b",
+     "thừa kế theo pháp luật hàng thừa kế người thừa kế di sản thừa kế"),
+    (r"\b(đất\s+không\s+sổ\s+đỏ|mua\s+bán\s+giấy\s+tay|chưa\s+có\s+sổ\s+đỏ)\b",
+     "giấy chứng nhận quyền sử dụng đất điều kiện cấp giấy chứng nhận hợp đồng chuyển nhượng quyền sử dụng đất"),
+
+    # Nhóm lao động nữ mang thai, dưỡng thai, tạm hoãn hợp đồng lao động (Điều 138 BLLĐ 2019)
+    (r"(giữ\s+thai|dưỡng\s+thai|dễ\s+sẩy\s+thai|dễ\s+hư\s+thai|động\s+thai|ảnh\s+hưởng\s+thai|bác\s+s[ĩỹ].*(tư|nghỉ)|nghỉ\s+không\s+lương.*thai)",
+     "lao động nữ mang thai tạm hoãn thực hiện hợp đồng lao động ảnh hưởng xấu tới thai nhi cơ sở khám bệnh chữa bệnh có thẩm quyền")
+]
+
+
+def enrich_legal_query(query: str) -> str:
+    """
+    Subsumptive Query Expansion: Tự động quy nạp và làm giàu truy vấn từ ngôn ngữ đời thường
+    sang các thuật ngữ quy phạm pháp luật tương ứng để BM25 và Dense Search quét trúng luật.
+    """
+    expanded_terms = []
+    q_lower = query.lower()
+    for pattern, legal_terms in LEGAL_SUBSUMPTION_DICTIONARY:
+        if re.search(pattern, q_lower, re.IGNORECASE):
+            expanded_terms.append(legal_terms)
+
+    if expanded_terms:
+        # Nối các thuật ngữ pháp lý bổ sung vào câu truy vấn tìm kiếm
+        return query + " " + " ".join(expanded_terms)
+    return query
 
 
 def is_complex_query(query: str) -> bool:
@@ -130,7 +199,7 @@ def decompose_query(query: str, client=None) -> list:
 
     prompt = f"Phân tích và tách câu hỏi pháp lý phức tạp sau thành 2-4 sub-queries ngắn gọn, chuẩn thuật ngữ pháp luật:\n\n{query}"
 
-    candidate_models = ["gemini-2.5-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite"]
+    candidate_models = ["gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash"]
     for model_name in candidate_models:
         try:
             config = types.GenerateContentConfig(
@@ -266,8 +335,8 @@ def rerank_candidates(query: str, candidates: list, reranker_model: CrossEncoder
     if not candidates:
         return []
 
-    pairs = [(query, c["content"]) for c, rrf_score, b_score, d_score in candidates]
-    rerank_scores = reranker_model.predict(pairs, batch_size=32, show_progress_bar=False)
+    pairs = [(query, c["content"][:800]) for c, rrf_score, b_score, d_score in candidates]
+    rerank_scores = reranker_model.predict(pairs, batch_size=16, show_progress_bar=False)
 
     reranked = []
     for idx, (c, rrf_score, b_score, d_score) in enumerate(candidates):
@@ -280,38 +349,121 @@ def rerank_candidates(query: str, candidates: list, reranker_model: CrossEncoder
 
 
 
-def reference_expansion(top_chunks, all_chunks_by_id, graph_retriever=None, max_expanded: int = DEFAULT_MAX_EXPANDED):
+# =====================================================================
+# TRỤ CỘT 3: DYNAMIC TOP-K & SCORE GAP CUTOFF (CẮT TỈA NHIỄU THEO KHOẢNG CÁCH ĐIỂM)
+# =====================================================================
+def filter_by_score_gap(
+    candidates: list,
+    min_score: float = 0.0001,
+    max_gap: float = 0.80,
+    min_keep: int = 2,
+    max_keep: int = DEFAULT_RERANK_TOP_K
+) -> list:
     """
-    Bước mở rộng chunk dựa trên đồ thị dẫn chiếu pháp lý (GraphRAG Multi-hop Traversal).
-    Ưu tiên duyệt Neo4j Knowledge Graph, tự động fallback sang danh bạ bộ nhớ nếu Neo4j không khả dụng.
+    Cắt tỉa động các chunk ứng viên sau khi xếp hạng:
+    1. Giữ ít nhất min_keep chunks (nếu danh sách có đủ).
+    2. Cắt tối đa max_keep chunks (tránh nhồi nhét làm ngợp LLM).
+    3. Loại bỏ mọi chunk có điểm tuyệt đối < min_score (trừ khi để đảm bảo min_keep).
+    4. Loại bỏ các chunk có khoảng cách tương đối so với Top-1 rơi vào vùng nhiễu (relative gap > max_gap).
     """
+    if not candidates:
+        return []
+
+    def get_score(item):
+        if isinstance(item, dict):
+            return item.get("rerank_score", 0.0)
+        elif isinstance(item, (list, tuple)) and len(item) > 1:
+            return float(item[1])
+        return 0.0
+
+    top_1_score = get_score(candidates[0])
+    filtered = []
+
+    for idx, item in enumerate(candidates):
+        if idx >= max_keep:
+            break
+        score = get_score(item)
+
+        # Luôn giữ tối thiểu min_keep chunks đầu tiên
+        if idx < min_keep:
+            filtered.append(item)
+            continue
+
+        # Tính khoảng cách tương đối (relative score drop)
+        rel_drop = (top_1_score - score) / (top_1_score + 1e-9) if top_1_score > 0 else 0.0
+
+        if score >= min_score and rel_drop <= max_gap:
+            filtered.append(item)
+        else:
+            # Điểm bắt đầu rơi xuống vùng nhiễu -> Cắt bỏ ngay
+            break
+
+    return filtered
+
+
+def reference_expansion(
+    top_chunks,
+    all_chunks_by_id,
+    graph_retriever=None,
+    reranker_model: Optional[CrossEncoder] = None,
+    max_expanded: int = DEFAULT_MAX_EXPANDED,
+    missing_elements: Optional[List[str]] = None,
+    query_text: str = "",
+    min_score_threshold: float = 0.85
+):
+    """
+    Bước mở rộng chunk dựa trên đồ thị dẫn chiếu pháp lý (Scored Directional Graph Expansion).
+    Tận dụng Article Bundling, lọc ngưỡng sàn và hậu kiểm qua Cross-Encoder.
+    """
+    if not top_chunks:
+        return []
+
     seen = {c["chunk_id"] for c in top_chunks}
+    seed_ids = [c["chunk_id"] for c in top_chunks]
+
+    if graph_retriever and hasattr(graph_retriever, "expand_with_ranking"):
+        ranked_candidates = graph_retriever.expand_with_ranking(
+            seed_chunk_ids=seed_ids,
+            missing_elements=missing_elements,
+            query_text=query_text,
+            top_n=max_expanded * 2,
+            min_score_threshold=min_score_threshold,
+            all_chunks_by_id=all_chunks_by_id
+        )
+
+        # Hậu kiểm bằng Cross-Encoder nếu có reranker_model và query_text
+        if reranker_model and query_text and ranked_candidates:
+            pairs = [(query_text, cand.get("content", "")[:800]) for cand in ranked_candidates]
+            scores = reranker_model.predict(pairs, batch_size=16, show_progress_bar=False)
+            valid_candidates = []
+            for idx, cand in enumerate(ranked_candidates):
+                r_score = float(scores[idx])
+                cand["post_rerank_score"] = r_score
+                # Ngưỡng hậu kiểm tương đối: chỉ loại bỏ các node có điểm quá thấp (< 0.00005)
+                if r_score >= 0.00005:
+                    valid_candidates.append(cand)
+            valid_candidates.sort(key=lambda x: (x.get("post_rerank_score", 0), x.get("graph_score", 0)), reverse=True)
+            ranked_candidates = valid_candidates
+
+        expanded = []
+        for cand in ranked_candidates:
+            if cand["chunk_id"] not in seen:
+                expanded.append(cand)
+                seen.add(cand["chunk_id"])
+                if len(expanded) >= max_expanded:
+                    break
+        return expanded
+
+    # Fallback in-memory
     expanded = []
-
-    # 1. Thử mở rộng qua Neo4j Knowledge Graph
-    if graph_retriever and hasattr(graph_retriever, "is_available") and graph_retriever.is_available():
-        seed_ids = [c["chunk_id"] for c in top_chunks]
-        graph_expanded = graph_retriever.expand_references(seed_ids, max_hops=1, limit_per_seed=2)
-        for ge in graph_expanded:
-            cid = ge["chunk_id"]
-            if cid not in seen:
-                # Lấy chunk đầy đủ từ all_chunks_by_id hoặc dùng metadata từ graph
-                chunk_obj = all_chunks_by_id.get(cid, ge)
-                expanded.append(chunk_obj)
-                seen.add(cid)
-                if len(expanded) >= max_expanded:
-                    return expanded
-
-    # 2. Fallback duyệt in-memory nếu chưa đủ
-    if len(expanded) < max_expanded:
-        for c in top_chunks:
-            for ref_id in c.get("references", []):
-                if ref_id in seen or ref_id not in all_chunks_by_id:
-                    continue
-                expanded.append(all_chunks_by_id[ref_id])
-                seen.add(ref_id)
-                if len(expanded) >= max_expanded:
-                    return expanded
+    for c in top_chunks:
+        for ref_id in c.get("references", []):
+            if ref_id in seen or ref_id not in all_chunks_by_id:
+                continue
+            expanded.append(all_chunks_by_id[ref_id])
+            seen.add(ref_id)
+            if len(expanded) >= max_expanded:
+                return expanded
 
     return expanded
 
@@ -335,25 +487,21 @@ def execute_hybrid_rag_pipeline(
     Quy trình Hybrid Retrieval + GraphRAG + Query Decomposition tích hợp:
     1. Kiểm tra câu hỏi:
        - Nếu đơn giản: Chạy 1 lượt Hybrid + Graph + Rerank.
-       - Nếu phức tạp:
-         a) Phân rã thành 2-4 sub-queries.
-         b) Với mỗi sub-query:
-            - Hybrid Search (BM25 + FAISS) lấy top candidates.
-            - Mở rộng Neo4j Graph cho các candidate hàng đầu của sub-query.
-            - Rerank cục bộ theo ngữ cảnh của sub-query.
-         c) Merge & Deduplicate toàn bộ candidate chunks thu được.
-         d) Rerank toàn cục (Global Rerank) lại tất cả các candidate theo CÂU HỎI GỐC để lấy Top K chuẩn nhất.
-         e) Mở rộng Neo4j Graph lần cuối cho Top K tổng thể.
+       - Nếu phức tạp: Phân rã thành 2-4 sub-queries -> Retrieval đa luồng -> Merge -> Global Rerank -> Graph.
     """
     is_complex = is_complex_query(query_str)
 
+    # TRỤ CỘT 4: Mở rộng truy vấn quy nạp từ vựng đời thường sang pháp lý
+    search_query = enrich_legal_query(query_str)
+
     if not is_complex:
-        query_vec = model.encode(query_str, normalize_embeddings=True)
+        query_vec = model.encode(search_query, normalize_embeddings=True)
         candidate_results = hybrid_rrf_search(
-            query_str, query_vec, eligible_chunks, eligible_embeddings,
+            search_query, query_vec, eligible_chunks, eligible_embeddings,
             bm25_model=bm25_model, faiss_index=faiss_index, k=60, top_k=candidate_top_k
         )
-        final_top = rerank_candidates(query_str, candidate_results, reranker, top_k=rerank_top_k)
+        # Rerank bằng câu hỏi đã được enrich để Cross-Encoder nhận diện được cả ngữ cảnh lẫn thuật ngữ luật
+        final_top = rerank_candidates(search_query, candidate_results, reranker, top_k=rerank_top_k)
         top_chunks = [c for c, r_score, rrf_score, b_score, d_score in final_top]
         expanded = reference_expansion(top_chunks, all_chunks_by_id, graph_retriever=graph_retriever, max_expanded=max_expanded)
         return top_chunks, expanded
@@ -365,8 +513,7 @@ def execute_hybrid_rag_pipeline(
         print(f"   [{idx}] {sq}")
 
     all_sub_candidates = {}
-
-    all_queries_to_search = [query_str] + sub_queries
+    all_queries_to_search = [search_query] + [enrich_legal_query(sq) for sq in sub_queries]
 
     for q_item in all_queries_to_search:
         q_vec = model.encode(q_item, normalize_embeddings=True)
@@ -379,7 +526,14 @@ def execute_hybrid_rag_pipeline(
         cand_chunks = [c for c, rrf, b, d in candidates]
 
         # 2. Neo4j Graph Expansion cho subquery
-        sub_expanded = reference_expansion(cand_chunks[:5], all_chunks_by_id, graph_retriever=graph_retriever, max_expanded=2)
+        sub_expanded = reference_expansion(
+            cand_chunks[:4], all_chunks_by_id,
+            graph_retriever=graph_retriever,
+            reranker_model=reranker,
+            max_expanded=2,
+            query_text=query_str,
+            min_score_threshold=0.85
+        )
 
         # Gộp candidates + graph expanded
         combined_cand = list(candidates)
@@ -399,9 +553,9 @@ def execute_hybrid_rag_pipeline(
     merged_candidates = list(all_sub_candidates.values())
     print(f"\n📦 [Merge] Tổng hợp được {len(merged_candidates)} chunk ứng viên độc nhất từ các sub-queries.")
 
-    # 4. Rerank toàn cục lại toàn bộ ứng viên đối chiếu với CÂU HỎI GỐC
-    print(f"🎯 [Global Reranking] Xếp hạng lại toàn bộ ứng viên theo câu hỏi gốc -> Chọn Top {rerank_top_k}...")
-    pairs = [(query_str, item[0]["content"]) for item in merged_candidates]
+    # 4. Rerank toàn cục lại toàn bộ ứng viên đối chiếu với CÂU HỎI ĐÃ ENRICH
+    print(f"🎯 [Global Reranking] Xếp hạng lại toàn bộ ứng viên theo câu hỏi đã enrich -> Chọn Top {rerank_top_k}...")
+    pairs = [(search_query, item[0]["content"][:800]) for item in merged_candidates]
     rerank_scores = reranker.predict(pairs, batch_size=32, show_progress_bar=False)
 
     final_ranked = []
@@ -411,10 +565,14 @@ def execute_hybrid_rag_pipeline(
         final_ranked.append((c, r_score))
 
     final_ranked.sort(key=lambda x: x[1], reverse=True)
-    top_chunks = [c for c, score in final_ranked[:rerank_top_k]]
+    top_chunks = []
+    for c, score in final_ranked[:rerank_top_k]:
+        c_dict = dict(c)
+        c_dict["rerank_score"] = float(score)
+        top_chunks.append(c_dict)
 
     # 5. Mở rộng dẫn chiếu đồ thị lần cuối
-    expanded = reference_expansion(top_chunks, all_chunks_by_id, graph_retriever=graph_retriever, max_expanded=max_expanded)
+    expanded = reference_expansion(top_chunks, all_chunks_by_id, graph_retriever=graph_retriever, max_expanded=max_expanded, query_text=search_query)
 
     return top_chunks, expanded
 
